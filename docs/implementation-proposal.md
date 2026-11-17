@@ -14,7 +14,7 @@ This proposal describes an open-source project that:
 
 1. Maintains a **verified, auditable archive** of Pakistan's sighted month starts, with a calculated fallback for unconfirmed months.
 2. **Computes prayer times** (including sehri/iftar) locally for a small set of cities and sect/school profiles.
-3. Runs a **watcher** on the 29th evening of each Hijri month that detects the committee's announcement and proposes the update for human approval.
+3. Runs a **scanner** on the 29th evening of each Hijri month that detects the committee's announcement and proposes the update for human approval.
 4. Serves everything as **static JSON** from the repository itself, with thin client libraries on top.
 
 The recurring cost is zero, and the repository is the single source of truth.
@@ -70,14 +70,14 @@ data/hijri/overrides.json                      # confirmed month starts (PR-edit
 data/hijri/calendar/1448.json                  # generated: Gregorian date -> Hijri date + confidence
 data/cities.json                               # city table (lat, lon, elevation), PR-extensible
 data/prayer/<city>/<profile>/<year>.json       # generated prayer times
-watcher/                                       # 29th-evening detection script
+scanner/                                       # 29th-evening detection script
 generator/                                     # builds calendar + prayer JSON
 packages/js                                    # reference client (TypeScript)
-.github/workflows/                             # watcher, generate, deploy
+.github/workflows/                             # scanner, generate, deploy
 ```
 
 - **GitHub Pages** serves the JSON as static files, with open CORS headers so browser apps can fetch it directly.
-- **GitHub Actions** is the backend: scheduled workflows run the watcher and regenerate data.
+- **GitHub Actions** is the backend: scheduled workflows run the scanner and regenerate data.
 - Prayer times and Hijri dates are **decoupled**. Prayer times do not depend on the Hijri calendar. A client joins them only to decide whether to show sehri/iftar.
 
 The data volume is small: 3 cities x 3 profiles x 365 days is a few thousand rows per year.
@@ -134,7 +134,7 @@ Islamically the day begins at Maghrib. Civil calendars flip at midnight.
 
 ---
 
-## 6. Announcement Watcher
+## 6. Announcement Scanner
 
 ### 6.1 Timing
 
@@ -142,7 +142,7 @@ The committee meets on the evening of the **29th**. If the moon is sighted, the 
 
 ### 6.2 Detection strategy
 
-The watcher does not need heavy NLP. There are only two outcomes, so it looks for the announced date instead of interpreting "sighted / not sighted":
+The scanner does not need heavy NLP. There are only two outcomes, so it looks for the announced date instead of interpreting "sighted / not sighted":
 
 1. Pre-compute the two candidate dates for the 1st (e.g. Monday vs Tuesday).
 2. Poll sources: news RSS feeds, Google News RSS for "Ruet-e-Hilal" / رویتِ ہلال, and the ministry's X account if accessible.
@@ -154,7 +154,7 @@ The watcher does not need heavy NLP. There are only two outcomes, so it looks fo
 
 ### 6.3 Human confirmation via pull request
 
-The watcher opens a **PR** with the proposed `overrides.json` entry, the regenerated calendar files and the matched article links. The PR carries the regenerated data because CI's data-freshness guard requires the committed calendar to match the confirmed record, so the proposal is self-consistent and merges in one step. Merging it (possible from a phone) triggers a Pages deploy. This provides the approval step and an audit trail. Keyword matching can misfire on zonal committees, Peshawar's separate sighting, and "moon not yet sighted" headlines, and a wrong month start is the worst failure mode for this service.
+The scanner opens a **PR** with the proposed `overrides.json` entry, the regenerated calendar files and the matched article links. The PR carries the regenerated data because CI's data-freshness guard requires the committed calendar to match the confirmed record, so the proposal is self-consistent and merges in one step. Merging it (possible from a phone) triggers a Pages deploy. This provides the approval step and an audit trail. Keyword matching can misfire on zonal committees, Peshawar's separate sighting, and "moon not yet sighted" headlines, and a wrong month start is the worst failure mode for this service.
 
 ### 6.4 GitHub Actions specifics
 
@@ -245,7 +245,7 @@ Backfill is an incremental improvement:
 2. **Use month-length constraints:** every month has 29 or 30 days, so two anchors n months apart fix the total number of days between them. For gaps of two or three months only a few combinations remain, and one dated source (newspaper dateline, notification, court order) usually resolves them.
 3. **Crowd-source the rest:** make "add a verified month start with a source link" a good-first-issue pull request.
 
-Going forward, the watcher builds the verified record automatically, which is the project's long-term value.
+Going forward, the scanner builds the verified record automatically, which is the project's long-term value.
 
 ---
 
@@ -280,7 +280,7 @@ Proposed stack: TypeScript on Node, `adhan`, `astronomy-engine`, `Intl` (`islami
 | 2 | Calendar generator | Builds yearly Hijri JSON from baseline + overrides. |
 | 3 | Prayer generator | Three cities x three profiles, validated against PMD and local timetables. |
 | 4 | Client library | Rollover logic, offline bundle, optional live refresh. |
-| 5 | Watcher | Date-gated polling, date extraction, PR creation. Dry-run for at least one month cycle. |
+| 5 | Scanner | Date-gated polling, date extraction, PR creation. Dry-run for at least one month cycle. |
 | 6 | Release | README, licensing, contribution guide, Pages deploy. |
 | 7 | Backfill | Anchor months, then community pull requests. |
 

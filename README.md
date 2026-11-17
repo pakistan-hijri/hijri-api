@@ -4,14 +4,14 @@ Open Hijri calendar and prayer time data for Pakistan, served as static JSON.
 
 Pakistan has no machine-readable source for **sighted** Hijri month starts. This project keeps a
 verified, auditable archive of them with a calculated fallback, computes prayer times locally, and
-watches the news for each announcement so a human approves the update through a pull request. The
+scans the news for each announcement so a human approves the update through a pull request. The
 repository is the data store, the build system and the API.
 
 > Every published Hijri date carries a confidence level; prayer times are calculated, not observed.
 
 ## API
 
-Base URL: `https://shaheeranser.github.io/hijri-api`. All routes are `GET`, served with
+Base URL: `https://pakistan-hijri.github.io/hijri-api`. All routes are `GET`, served with
 `access-control-allow-origin: *`.
 
 | Route | Returns |
@@ -44,7 +44,7 @@ The JSON is the real contract, so other languages can read it directly.
 ```ts
 import { HijriCalendar, PrayerTable, hijriDate, sehriIftar } from "hijri-api";
 
-const base = "https://shaheeranser.github.io/hijri-api";
+const base = "https://pakistan-hijri.github.io/hijri-api";
 const calendar = HijriCalendar.fromJSON(await (await fetch(`${base}/hijri/calendar/1448.json`)).json());
 const prayer = PrayerTable.fromJSON(await (await fetch(`${base}/prayer/karachi/sunni_hanafi/2026.json`)).json());
 
@@ -67,18 +67,18 @@ Requires Node 20+.
 npm install
 npm test                 # vitest
 npm run generate         # rebuild data/hijri/calendar and data/prayer
-npm run watcher          # dry run: detect and print, never write
+npm run scanner          # dry run: detect and print, never write
 ```
 
 See [CONTRIBUTING.md](./CONTRIBUTING.md) for adding a city or a confirmed month, and
 [MODULES.md](./MODULES.md) for the code layout.
 
-## Watcher
+## Scanner
 
-The Ruet-e-Hilal Committee meets on the evening of the 29th, so the watcher computes the two
+The Ruet-e-Hilal Committee meets on the evening of the 29th, so the scanner computes the two
 candidate dates, polls the news, and proposes an `overrides.json` entry only when **two independent
 publishers agree** on the same date. Because generic searches rank by relevance and miss minor
-months, it queries the month being watched across its common spellings and reads direct feeds too.
+months, it queries the month being scanned across its common spellings and reads direct feeds too.
 It opens a pull request rather than writing to `main`, and rebuilds the calendar in the same pull
 request so the change is complete and reviewable in one step; merging it deploys the site.
 A wrong month start is the worst failure mode, so a human stays in the loop, and an unconfirmed

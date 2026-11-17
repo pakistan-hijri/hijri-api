@@ -55,7 +55,7 @@ jobs:
           echo "changed=$changed" >> "$GITHUB_OUTPUT"
 
       # `main` is protected, so the generator cannot push to it directly. Propose
-      # the regenerated data as a pull request instead, like the watcher does.
+      # the regenerated data as a pull request instead, like the scanner does.
       - name: Open a pull request with the regenerated data
         if: steps.diff.outputs.changed == 'true'
         uses: peter-evans/create-pull-request@v6

@@ -1,6 +1,6 @@
 <!--
 Use this template when adding a confirmed month start for a month that has already
-passed (backfill). The watcher opens its own pull request for the upcoming month;
+passed (backfill). The scanner opens its own pull request for the upcoming month;
 this template is for everything before that.
 
 Keep one month per pull request where you can. If you add several, repeat the block
@@ -37,7 +37,7 @@ Added to `data/hijri/overrides.json`:
 
 <!-- Optional. A delayed announcement, a 30-day month, a regional dispute, or why
      this is the best available source. If this is the most recent month on record,
-     note that merging it makes it the watcher's starting point. -->
+     note that merging it makes it the scanner's starting point. -->
 
 ---
 

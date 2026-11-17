@@ -1,6 +1,6 @@
 /**
  * Public package surface: the reference client library and the data contract
- * types. Generators and the watcher are build tooling and are not exported.
+ * types. Generators and the scanner are build tooling and are not exported.
  */
 export type * from "./types.js";
 export { HijriCalendar, hijriDate, OutOfRangeError, type HijriDateOptions } from "./client/calendar.js";

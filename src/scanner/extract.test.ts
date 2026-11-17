@@ -36,7 +36,7 @@ describe("extractAnnouncedStart", () => {
   });
 });
 
-// The 1 Jumada al-Awwal 1448 announcement (2026-10-13), which the watcher
+// The 1 Jumada al-Awwal 1448 announcement (2026-10-13), which the scanner
 // missed: the winning headlines never say "Ruet-e-Hilal" or "committee".
 describe("extractAnnouncedStart (real Jumada al-Awwal headlines)", () => {
   const jumada = buildCandidates("2026-09-14", "Asia/Karachi").candidates;

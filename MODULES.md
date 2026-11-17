@@ -1,7 +1,7 @@
 # Module map
 
 Each module owns one responsibility. Dependencies point downward: the client and the
-watcher/build tooling sit above the domain modules, and nothing in the domain imports
+scanner/build tooling sit above the domain modules, and nothing in the domain imports
 the CLI.
 
 | Path | Responsibility |
@@ -20,15 +20,15 @@ the CLI.
 | `src/prayer/generate.ts` | Assemble yearly prayer files |
 | `src/client/calendar.ts` | `HijriCalendar` dataset + rollover-aware `hijriDate` |
 | `src/client/prayer.ts` | `PrayerTable` + the Ramadan sehri/iftar gate |
-| `src/watcher/candidates.ts` | The two candidate month starts + the polling-window gate |
-| `src/watcher/sources.ts` | Fetch and normalise RSS articles (injected fetcher) |
-| `src/watcher/extract.ts` | Match an article to a candidate date |
-| `src/watcher/proposal.ts` | Turn agreement into an overrides update + PR description |
-| `src/watcher/watcher.ts` | Orchestrate gate → poll → two-source agreement |
+| `src/scanner/candidates.ts` | The two candidate month starts + the polling-window gate |
+| `src/scanner/sources.ts` | Fetch and normalise RSS articles (injected fetcher) |
+| `src/scanner/extract.ts` | Match an article to a candidate date |
+| `src/scanner/proposal.ts` | Turn agreement into an overrides update + PR description |
+| `src/scanner/scanner.ts` | Orchestrate gate → poll → two-source agreement |
 | `src/backfill/backfill.ts` | Backfill report for a past year: confirmed vs. missing month starts |
 | `src/cli.ts` | Composition root: parse args, call modules, write files |
 | `src/index.ts` | Package public surface (client + types) only |
 
-`index.ts` files inside `src/hijri`, `src/prayer`, `src/client`, `src/watcher` and
+`index.ts` files inside `src/hijri`, `src/prayer`, `src/client`, `src/scanner` and
 `src/backfill` are barrels for their module's public surface. Internal code imports the
 concrete module, not the barrel.

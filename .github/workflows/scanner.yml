@@ -1,4 +1,4 @@
-name: watcher
+name: scanner
 
 on:
   # Poll frequently around the 29th evening. Pakistan is UTC+5, so 13:00-20:00
@@ -23,11 +23,11 @@ permissions:
   issues: write
 
 concurrency:
-  group: watcher
+  group: scanner
   cancel-in-progress: false
 
 jobs:
-  watch:
+  scan:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -39,23 +39,23 @@ jobs:
 
       - run: npm ci --include=dev
 
-      - name: Run the announcement watcher
+      - name: Run the announcement scanner
         # Scheduled runs must be allowed to write: the update only ever reaches
         # a pull request for human review, never main.
         run: |
           if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
-            npx tsx src/cli.ts watch --json-out watcher-out/run.json
+            npx tsx src/cli.ts scan --json-out scanner-out/run.json
           else
-            npx tsx src/cli.ts watch --write --json-out watcher-out/run.json
+            npx tsx src/cli.ts scan --write --json-out scanner-out/run.json
           fi
 
       - name: Write the run summary
         if: ${{ always() }}
         run: |
           {
-            echo "### Watcher run"
+            echo "### Scanner run"
             echo '```json'
-            cat watcher-out/run.json 2>/dev/null || echo "no run output"
+            cat scanner-out/run.json 2>/dev/null || echo "no run output"
             echo '```'
           } >> "$GITHUB_STEP_SUMMARY"
 
@@ -63,8 +63,8 @@ jobs:
         if: ${{ always() }}
         uses: actions/upload-artifact@v4
         with:
-          name: watcher-run
-          path: watcher-out/run.json
+          name: scanner-run
+          path: scanner-out/run.json
           if-no-files-found: ignore
 
       # A pull request that only changes overrides.json fails CI's
@@ -72,17 +72,17 @@ jobs:
       # confirmed record. Rebuild the calendar here so the proposal is
       # self-consistent and reviewable in one merge.
       - name: Rebuild the calendar from the updated overrides
-        if: ${{ hashFiles('watcher-out/pull-request.md') != '' }}
+        if: ${{ hashFiles('scanner-out/pull-request.md') != '' }}
         run: npx tsx src/cli.ts generate --calendar
 
       - name: Open a pull request for human approval
-        if: ${{ hashFiles('watcher-out/pull-request.md') != '' }}
+        if: ${{ hashFiles('scanner-out/pull-request.md') != '' }}
         uses: peter-evans/create-pull-request@v6
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          branch: watcher/hijri-month-start
-          title: "Watcher: confirm the next Hijri month start"
-          body-path: watcher-out/pull-request.md
+          branch: scanner/hijri-month-start
+          title: "Scanner: confirm the next Hijri month start"
+          body-path: scanner-out/pull-request.md
           add-paths: |
             data/hijri/overrides.json
             data/hijri/calendar
@@ -94,16 +94,16 @@ jobs:
           delete-branch: true
 
       - name: Raise an issue when a month start is overdue
-        if: ${{ hashFiles('watcher-out/run.json') != '' }}
+        if: ${{ hashFiles('scanner-out/run.json') != '' }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          status=$(node -p "require('./watcher-out/run.json').status")
+          status=$(node -p "require('./scanner-out/run.json').status")
           if [ "$status" != "overdue" ]; then exit 0; fi
-          key=$(node -p "const o=require('./watcher-out/run.json'); o.expected.year + '-' + String(o.expected.month).padStart(2,'0')")
-          latest=$(node -p "require('./watcher-out/run.json').latest")
-          title="Watcher: unconfirmed Hijri month start ($key)"
-          body=$(printf 'The watcher reached %s without confirming the start of %s.\n\nCheck the Ruet-e-Hilal announcement and add it to `data/hijri/overrides.json` manually, then merge.\n\n<sub>Automated by the watcher workflow.</sub>' "$latest" "$key")
+          key=$(node -p "const o=require('./scanner-out/run.json'); o.expected.year + '-' + String(o.expected.month).padStart(2,'0')")
+          latest=$(node -p "require('./scanner-out/run.json').latest")
+          title="Scanner: unconfirmed Hijri month start ($key)"
+          body=$(printf 'The scanner reached %s without confirming the start of %s.\n\nCheck the Ruet-e-Hilal announcement and add it to `data/hijri/overrides.json` manually, then merge.\n\n<sub>Automated by the scanner workflow.</sub>' "$latest" "$key")
           existing=$(gh issue list --repo "$GITHUB_REPOSITORY" --state open --search "$key in:title" --json number --jq '.[0].number')
           if [ -n "$existing" ]; then
             gh issue comment "$existing" --repo "$GITHUB_REPOSITORY" --body "$body"

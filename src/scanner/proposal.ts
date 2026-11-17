@@ -140,7 +140,7 @@ export function renderPullRequestBody(proposal: Proposal): string {
 
   return `## Proposed Hijri month start: ${name.en} ${proposal.hijri.year}
 
-The watcher detected agreement across independent sources that **1 ${name.en} ${proposal.hijri.year} (${name.ur})** begins on **${proposal.gregorian}**.
+The scanner detected agreement across independent sources that **1 ${name.en} ${proposal.hijri.year} (${name.ur})** begins on **${proposal.gregorian}**.
 
 ### Candidate dates
 ${candidates}

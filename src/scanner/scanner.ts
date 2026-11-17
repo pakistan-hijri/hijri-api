@@ -1,7 +1,7 @@
 /**
- * Watch the 29th-evening announcement: gate on the polling window, fetch
+ * Scan the 29th-evening announcement: gate on the polling window, fetch
  * sources, require two independent publishers to agree, then propose an update.
- * The watcher never writes; a human merges the pull request it drives.
+ * The scanner never writes; a human merges the pull request it drives.
  */
 import type { NormalizedOverrides } from "../hijri/overrides.js";
 import type { HijriDate } from "../types.js";
@@ -19,7 +19,7 @@ import {
 import { extractAnnouncedStart, isRelevantAnnouncement, type Extraction } from "./extract.js";
 import { buildProposal, countPublishers, type Proposal } from "./proposal.js";
 
-export interface WatcherOptions {
+export interface ScannerOptions {
   overrides: NormalizedOverrides;
   /** Karachi Maghrib instant for a civil day, used for the gate. */
   maghribFor: (gregorian: string) => Date | undefined;
@@ -48,7 +48,7 @@ export interface NearMiss {
   link: string;
 }
 
-export type WatcherOutcome =
+export type ScannerOutcome =
   | { status: "no-baseline"; reason: string }
   | { status: "not-due"; reason: string; twentyNinth: string }
   | { status: "overdue"; latest: string; lastConfirmed: HijriDate; expected: HijriDate }
@@ -85,7 +85,7 @@ function groupAgreements(
   return agreements;
 }
 
-export async function runWatcher(options: WatcherOptions): Promise<WatcherOutcome> {
+export async function runScanner(options: ScannerOptions): Promise<ScannerOutcome> {
   const now = options.now ?? new Date();
   const timezone = options.timezone ?? "Asia/Karachi";
   const requiredPublishers = options.requiredPublishers ?? 2;

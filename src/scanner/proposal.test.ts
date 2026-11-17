@@ -92,5 +92,6 @@ describe("renderPullRequestBody", () => {
     expect(body).toContain("2025-03-30");
     expect(body).toContain("Dawn");
     expect(body).toContain("1446-10-01");
+    expect(body).toContain("The scanner detected");
   });
 });

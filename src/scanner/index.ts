@@ -1,12 +1,12 @@
-/** Public surface of the announcement watcher module. */
+/** Public surface of the announcement scanner module. */
 export {
-  runWatcher,
+  runScanner,
   type Agreement,
   type NearMiss,
   type Sighting,
-  type WatcherOptions,
-  type WatcherOutcome,
-} from "./watcher.js";
+  type ScannerOptions,
+  type ScannerOutcome,
+} from "./scanner.js";
 export { buildCandidates, isPollingWindow, type CandidatePair, type MonthCandidate } from "./candidates.js";
 export {
   COMMITTEE_SOURCES,

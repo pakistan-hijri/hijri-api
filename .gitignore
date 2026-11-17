@@ -6,5 +6,6 @@ dist/
 .env.*
 coverage/
 .commandcode/
-watcher-out/
+scanner-out/
 backfill-out/
+drafts/

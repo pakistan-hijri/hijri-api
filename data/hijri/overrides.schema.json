@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Hijri month overrides",
-  "description": "Confirmed sightings of the 1st of each Hijri month for Pakistan. Every entry must cite at least one public source URL. Opened as a pull request by the watcher or contributed by hand.",
+  "description": "Confirmed sightings of the 1st of each Hijri month for Pakistan. Every entry must cite at least one public source URL. Opened as a pull request by the scanner or contributed by hand.",
   "type": "object",
   "required": ["coverage_start", "months"],
   "additionalProperties": false,

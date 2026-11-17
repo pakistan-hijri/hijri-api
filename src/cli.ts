@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * CLI: generate the data files, run the announcement watcher, or build a
+ * CLI: generate the data files, run the announcement scanner, or build a
  * backfill report for a past Hijri year. A thin composition root that parses
  * arguments and calls the modules.
  */
@@ -14,9 +14,9 @@ import type { City, OverridesFile, PrayerProfile } from "./types.js";
 import {
   applyProposal,
   renderPullRequestBody,
-  runWatcher,
-  type WatcherOutcome,
-} from "./watcher/index.js";
+  runScanner,
+  type ScannerOutcome,
+} from "./scanner/index.js";
 import { buildBackfillReport, renderBackfillMarkdown } from "./backfill/index.js";
 import { CALENDAR_DIR, CALENDAR_INDEX_FILE, OVERRIDES_FILE, PRAYER_DIR, REPO_ROOT } from "./paths.js";
 import { todayInPakistan } from "./dates.js";
@@ -164,38 +164,38 @@ function karachiMaghrib(city: City, profile: PrayerProfile): (date: string) => D
   };
 }
 
-async function runWatch(args: Args): Promise<number> {
+async function runScan(args: Args): Promise<number> {
   const overrides: NormalizedOverrides = loadOverrides();
   const cities = loadCities();
   const city = cities.find((item) => item.id === "karachi") ?? cities[0];
   if (city === undefined) {
-    console.error("watch: no cities configured");
+    console.error("scan: no cities configured");
     return 1;
   }
   const now = stringFlag(args.flags, "now");
-  const outcome = await runWatcher({
+  const outcome = await runScanner({
     overrides,
     now: now === undefined ? undefined : new Date(now),
     maghribFor: karachiMaghrib(city, getProfile("sunni_hanafi")),
   });
   const jsonOut = stringFlag(args.flags, "json-out");
   if (jsonOut !== undefined) writeJson(jsonOut, outcome);
-  return reportWatch(args, outcome);
+  return reportScan(args, outcome);
 }
 
-function reportWatch(args: Args, outcome: WatcherOutcome): number {
+function reportScan(args: Args, outcome: ScannerOutcome): number {
   if (outcome.status === "proposed") {
     const body = renderPullRequestBody(outcome.proposal);
-    console.log(`watch: proposed ${outcome.proposal.gregorian} as 1 of ${outcome.proposal.hijriKey}`);
+    console.log(`scan: proposed ${outcome.proposal.gregorian} as 1 of ${outcome.proposal.hijriKey}`);
     console.log(body);
     if (args.flags.get("write") === true) {
       writeJson(OVERRIDES_FILE, applyProposal(loadRawOverrides(), outcome.proposal));
-      const outDir = join(REPO_ROOT, "watcher-out");
+      const outDir = join(REPO_ROOT, "scanner-out");
       mkdirSync(outDir, { recursive: true });
       writeFileSync(join(outDir, "pull-request.md"), body, "utf8");
-      console.log(`watch: wrote ${OVERRIDES_FILE} and watcher-out/pull-request.md`);
+      console.log(`scan: wrote ${OVERRIDES_FILE} and scanner-out/pull-request.md`);
     } else {
-      console.log("watch: dry run; pass --write to update overrides.json");
+      console.log("scan: dry run; pass --write to update overrides.json");
     }
     if (args.flags.get("dump") === true) {
       console.log(JSON.stringify(outcome, null, 2));
@@ -203,7 +203,7 @@ function reportWatch(args: Args, outcome: WatcherOutcome): number {
     return 0;
   }
 
-  console.log(`watch: ${outcome.status}${
+  console.log(`scan: ${outcome.status}${
     outcome.status === "not-due" || outcome.status === "no-baseline" ? ` (${outcome.reason})` : ""
   }`);
   if (outcome.status === "overdue") {
@@ -236,15 +236,15 @@ async function main(): Promise<void> {
     runGenerate(args);
     return;
   }
-  if (args.command === "watch") {
-    process.exitCode = await runWatch(args);
+  if (args.command === "scan") {
+    process.exitCode = await runScan(args);
     return;
   }
   if (args.command === "backfill") {
     runBackfill(args);
     return;
   }
-  console.error(`Unknown command "${args.command}". Use "generate", "watch", or "backfill".`);
+  console.error(`Unknown command "${args.command}". Use "generate", "scan", or "backfill".`);
   process.exitCode = 1;
 }
 

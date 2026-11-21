@@ -12,8 +12,13 @@ describe("buildCalendar", () => {
     expect(files).toHaveLength(1);
     expect(files[0]?.hijri_year).toBe(1448);
     expect(files[0]?.days["2026-10-06"]?.confidence).toBe("predicted");
-    expect(files[0]?.days[hijriYearStart(1448)]?.confidence).toBe("estimated");
-    expect(index).toMatchObject({ coverage_start: null, confirmed_days: 0, hijri_years: [1448] });
+    expect(files[0]?.days[hijriYearStart(1448)]?.confidence).toBe("predicted");
+    expect(index).toMatchObject({
+      coverage_start: null,
+      confirmed_days: 0,
+      confirmed_through: null,
+      hijri_years: [1448],
+    });
   });
 
   it("counts confirmed days and derives coverage from a confirmed start", () => {

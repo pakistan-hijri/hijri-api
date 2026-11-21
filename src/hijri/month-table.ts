@@ -154,20 +154,22 @@ function plannedLengths(months: ConfirmedMonth[], cache: Map<number, string>): M
 
 export function buildMonthTable(options: BuildMonthTableOptions): MonthRow[] {
   const { overrides, hijriYears } = options;
-  if (hijriYears.length === 0 || overrides.months.length === 0) return [];
+  if (hijriYears.length === 0) return [];
 
-  const byOrdinal = indexedMonths(overrides.months);
-  const first = overrides.months[0]!;
-  const last = overrides.months[overrides.months.length - 1]!;
-  const startOrdinal = monthOrdinal(first.hijri);
-  const endOrdinal = monthOrdinal({ year: Math.max(...hijriYears), month: 12, day: 1 });
-  const lastConfirmedOrdinal = monthOrdinal(last.hijri);
   const cache = new Map<number, string>();
-  const lengths = plannedLengths(overrides.months, cache);
+  const byOrdinal = overrides.months.length > 0 ? indexedMonths(overrides.months) : new Map<number, ConfirmedMonth>();
+  const first = overrides.months[0];
+  const last = overrides.months[overrides.months.length - 1];
+  const startOrdinal = first === undefined
+    ? monthOrdinal({ year: Math.min(...hijriYears), month: 1, day: 1 })
+    : monthOrdinal(first.hijri);
+  const endOrdinal = monthOrdinal({ year: Math.max(...hijriYears), month: 12, day: 1 });
+  const lastConfirmedOrdinal = last === undefined ? Number.NEGATIVE_INFINITY : monthOrdinal(last.hijri);
+  const lengths = first === undefined ? new Map<number, MonthLength>() : plannedLengths(overrides.months, cache);
   const rows: MonthRow[] = [];
 
   let ordinal = startOrdinal;
-  let start = first.gregorian;
+  let start = first?.gregorian ?? baselineStart(startOrdinal, cache);
   while (ordinal <= endOrdinal) {
     const confirmed = byOrdinal.get(ordinal);
     if (confirmed !== undefined && confirmed.gregorian !== start) {

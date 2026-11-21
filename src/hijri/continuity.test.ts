@@ -16,10 +16,10 @@ function buildDays(): Record<GregorianDate, HijriDayEntry> {
 describe("calendar continuity regressions", () => {
   const days = buildDays();
 
-  it("starts 1448-07 the day after the confirmed 1448-06 month", () => {
-    expect(days["2026-12-11"]?.hijri).toBe("1448-06-30");
-    expect(days["2026-12-12"]?.hijri).toBe("1448-07-01");
-    expect(days["2026-12-12"]?.day).toBe(1);
+  it("starts 1448-07 on the baseline-nearest date after the confirmed 1448-06 month", () => {
+    expect(days["2026-12-10"]?.hijri).toBe("1448-06-29");
+    expect(days["2026-12-11"]).toMatchObject({ hijri: "1448-07-01", day: 1 });
+    expect(days["2026-12-12"]).toMatchObject({ hijri: "1448-07-02", day: 2 });
   });
 
   it("does not emit days before coverage_start or duplicate a month start", () => {

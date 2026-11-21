@@ -59,8 +59,9 @@ export interface HijriDayEntry {
   day: number;
   month_name: MonthName;
   confidence: Confidence;
-  /** Present when confidence is `confirmed`. */
+  /** Present for days derived from a confirmed month start. */
   sources?: string[];
+  uncertainty_days?: number;
 }
 
 /** `data/hijri/calendar/<hijriYear>.json` — Gregorian date -> Hijri date. */
@@ -81,6 +82,7 @@ export interface CalendarIndex {
   hijri_years: number[];
   /** Count of days published as `confirmed`. */
   confirmed_days: number;
+  confirmed_through: GregorianDate | null;
 }
 
 export interface City {

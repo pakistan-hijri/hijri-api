@@ -50,7 +50,7 @@ function parseHijriKey(key: string, context: string): HijriDate {
 
 /**
  * Validate raw JSON against the overrides contract. Every entry needs at least
- * one source URL so the record stays auditable (proposal section 5.1).
+ * one source URL so the record stays auditable.
  */
 export function parseOverrides(input: unknown): NormalizedOverrides {
   if (typeof input !== "object" || input === null || Array.isArray(input)) {

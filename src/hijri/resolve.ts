@@ -66,7 +66,7 @@ export interface ResolveContext {
 }
 
 /**
- * Confidence rules (proposal section 5.2):
+ * Confidence rules:
  * - confirmed: a verified start date covers this day.
  * - unconfirmed: on the projected last day of a month, where sighting decides
  *   whether a 30th day exists.

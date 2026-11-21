@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>hijri-api — Hijri calendar and prayer times for Pakistan, as JSON</title>
-<meta name="description" content="Open Hijri calendar and prayer times data for Pakistan, served as static JSON. Every date carries a confidence level and every confirmed month cites its sources.">
+<title>hijri-api — JSON calendar and prayer times for Pakistan</title>
+<meta name="description" content="Static JSON for Pakistan's Hijri month starts, calendar dates and calculated prayer times.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z' fill='%238a5a12'/%3E%3C/svg%3E">
 <style>
   :root {
@@ -26,220 +26,167 @@
       --code-bg: #1d2027;
     }
   }
-
   * { box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; }
-
   body {
     margin: 0;
     background: var(--paper);
     color: var(--ink);
-    font: 400 17px/1.62 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    text-rendering: optimizeLegibility;
+    font: 400 17px/1.6 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   }
-
-  .wrap {
-    max-width: 48rem;
-    margin: 0 auto;
-    padding: clamp(1.75rem, 6vw, 4.5rem) clamp(1.25rem, 5vw, 2.5rem) 4rem;
-  }
-
-  a { color: var(--accent); text-decoration-thickness: .06em; text-underline-offset: .18em; }
-  a:hover { text-decoration-thickness: .14em; }
-  :focus-visible { outline: 2px dashed var(--accent); outline-offset: 3px; border-radius: 3px; }
-
-  code, pre, .mono {
-    font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
-  }
-
-  header { display: flex; flex-direction: column; align-items: flex-start; }
-  .mark { color: var(--accent); margin-bottom: 1.25rem; }
-  .eyebrow {
-    margin: 0 0 .85rem;
-    font-size: .76rem;
-    letter-spacing: .16em;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
-  h1 {
-    margin: 0 0 1rem;
-    font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
-    font-weight: 600;
-    font-size: clamp(2.1rem, 6vw, 3rem);
-    line-height: 1.08;
-    letter-spacing: -.015em;
-  }
-  .lede { margin: 0 0 1.6rem; max-width: 60ch; font-size: 1.06rem; }
-
-  .base { margin: 0; font-size: .92rem; color: var(--muted); }
-  .base code {
-    display: inline-block;
-    margin-top: .35rem;
-    padding: .3em .55em;
-    background: var(--code-bg);
-    border: 1px solid var(--rule);
-    border-radius: 5px;
-    font-size: .86rem;
-    color: var(--ink);
-    word-break: break-word;
-  }
-
-  h2 {
-    margin: 3rem 0 1rem;
-    padding-bottom: .45rem;
-    border-bottom: 1px solid var(--rule);
-    font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
-    font-weight: 600;
-    font-size: 1.32rem;
-    letter-spacing: -.01em;
-  }
-
-  .meta { margin: 0 0 1rem; font-size: .93rem; color: var(--muted); }
-  .meta code, .note code {
-    padding: .12em .38em;
-    background: var(--code-bg);
-    border-radius: 4px;
-    font-size: .85em;
-    color: var(--ink);
-  }
-
-  .routes { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule); }
-  .routes li {
-    display: grid;
-    grid-template-columns: minmax(0, 17rem) 1fr;
-    gap: .3rem 1.75rem;
-    align-items: baseline;
-    padding: .9rem 0;
-    border-bottom: 1px solid var(--rule);
-  }
-  .routes .path { font-size: .9rem; word-break: break-word; }
-  .routes .desc { margin: 0; font-size: .95rem; color: var(--muted); }
-  .routes .desc code { color: var(--ink); }
-
-  .note { margin: 1rem 0 0; font-size: .93rem; color: var(--muted); }
-
-  dl.conf { display: grid; grid-template-columns: auto 1fr; gap: .6rem 1.5rem; margin: 0; }
-  dl.conf dt { font-size: .88rem; color: var(--ink); }
-  dl.conf dd { margin: 0; font-size: .95rem; color: var(--muted); }
-  dl.conf dt::before { content: "·"; color: var(--accent); margin-right: .5em; }
-
-  pre {
-    margin: 0;
-    padding: 1rem 1.15rem;
-    background: var(--code-bg);
-    border: 1px solid var(--rule);
-    border-radius: 8px;
-    overflow-x: auto;
-    font-size: .84rem;
-    line-height: 1.6;
-  }
-
-  footer {
-    margin-top: 3.75rem;
-    padding-top: 1.4rem;
-    border-top: 1px solid var(--rule);
-    font-size: .89rem;
-    color: var(--muted);
-  }
-  footer p { margin: 0 0 .6rem; }
-  footer nav { display: flex; flex-wrap: wrap; gap: .35rem .75rem; }
-
-  @media (max-width: 560px) {
-    .routes li { grid-template-columns: 1fr; gap: .25rem; }
-    dl.conf { grid-template-columns: 1fr; gap: .15rem; }
-    dl.conf dd { margin-bottom: .7rem; }
-  }
+  .wrap { max-width: 52rem; margin: 0 auto; padding: 3rem 1.25rem 4rem; }
+  h1 { font: 600 clamp(2rem, 6vw, 2.8rem)/1.1 Georgia, serif; margin: .5rem 0 1rem; }
+  h2 { font: 600 1.3rem/1.2 Georgia, serif; margin: 2.8rem 0 1rem; padding-bottom: .4rem; border-bottom: 1px solid var(--rule); }
+  p { margin: 0 0 1rem; }
+  a { color: var(--accent); text-underline-offset: .18em; }
+  code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+  :not(pre) > code { padding: .12em .35em; background: var(--code-bg); border-radius: 4px; font-size: .88em; }
+  pre { margin: 0 0 1rem; padding: 1rem; background: var(--code-bg); border: 1px solid var(--rule); border-radius: 8px; overflow-x: auto; font-size: .85rem; line-height: 1.55; }
+  .eyebrow { margin: 0; color: var(--muted); font-size: .78rem; letter-spacing: .15em; text-transform: uppercase; }
+  .lede { max-width: 62ch; font-size: 1.08rem; }
+  .callout { margin: 1.5rem 0; padding: .9rem 1rem; border-left: 4px solid var(--accent); background: var(--code-bg); }
+  .callout p:last-child { margin-bottom: 0; }
+  .base { color: var(--muted); font-size: .92rem; }
+  .base code { display: inline-block; margin-top: .3rem; padding: .35em .55em; color: var(--ink); }
+  .scroll { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: .94rem; }
+  th, td { padding: .7rem .6rem; border-bottom: 1px solid var(--rule); text-align: left; vertical-align: top; }
+  th { color: var(--muted); font-weight: 600; }
+  .note { color: var(--muted); font-size: .93rem; }
+  footer { margin-top: 3rem; padding-top: 1.2rem; border-top: 1px solid var(--rule); color: var(--muted); font-size: .9rem; }
 </style>
 </head>
 <body>
 <div class="wrap">
 
   <header>
-    <svg class="mark" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true" focusable="false">
-      <path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z" fill="currentColor"/>
-    </svg>
     <p class="eyebrow">Open data · Pakistan</p>
     <h1>Hijri calendar and prayer times, as JSON</h1>
-    <p class="lede">
-      A verified, auditable archive of Pakistan's sighted Hijri month starts with a calculated
-      fallback, plus locally computed prayer times. Every date carries a confidence level, and
-      every confirmed month cites its sources.
-    </p>
+    <p class="lede">Confirmed Hijri month starts with sources, projected dates with explicit confidence, and calculated prayer times. No account, no key, no backend.</p>
+    <div class="callout">
+      <p><strong>Read this first:</strong> treat any date whose <code>confidence</code> is not <code>confirmed</code> as approximate. It is not the committee's decision.</p>
+    </div>
     <p class="base">Base URL<br><code>https://pakistan-hijri.github.io/hijri-api</code></p>
   </header>
 
   <main>
+    <section aria-labelledby="quickstart">
+      <h2 id="quickstart">Quick start</h2>
+      <pre><code>const base = "https://pakistan-hijri.github.io/hijri-api";
+
+const index = await fetch(`${base}/hijri/index.json`).then(r =&gt; r.json());
+const calendar = await fetch(`${base}/hijri/calendar/1448.json`).then(r =&gt; r.json());
+
+console.log(index.confirmed_through);
+console.log(calendar.days["2026-11-12"]);</code></pre>
+      <p class="note">All routes are <code>GET</code> and served with <code>access-control-allow-origin: *</code>.</p>
+    </section>
+
     <section aria-labelledby="routes">
       <h2 id="routes">Routes</h2>
-      <p class="meta">
-        All routes are <code>GET</code> and served with <code>access-control-allow-origin: *</code>,
-        so browsers can fetch them directly.
-      </p>
-      <ul class="routes">
-        <li>
-          <a class="path" href="hijri/index.json">/hijri/index.json</a>
-          <p class="desc">Manifest: coverage, generation time, and the available Hijri years.</p>
-        </li>
-        <li>
-          <a class="path" href="hijri/overrides.json">/hijri/overrides.json</a>
-          <p class="desc">The confirmed month-start record, human-edited, with a source for every entry.</p>
-        </li>
-        <li>
-          <a class="path" href="hijri/calendar/1448.json">/hijri/calendar/1448.json</a>
-          <p class="desc">Gregorian date to Hijri date and confidence. Replace <code>1448</code> with the Hijri year.</p>
-        </li>
-        <li>
-          <a class="path" href="prayer/karachi/sunni_hanafi/2026.json">/prayer/karachi/sunni_hanafi/2026.json</a>
-          <p class="desc">Daily prayer times for one city, profile and Gregorian year.</p>
-        </li>
-      </ul>
-      <p class="note">
-        Paths follow <code>/prayer/{city}/{profile}/{year}.json</code>. Cities:
-        <code>karachi</code>, <code>lahore</code>, <code>peshawar</code>. Profiles:
-        <code>sunni_hanafi</code>, <code>sunni_asr1</code> (earlier Asr), <code>shia_jafari</code>.
-      </p>
+      <div class="scroll">
+        <table>
+          <thead><tr><th>Path</th><th>Returns</th></tr></thead>
+          <tbody>
+            <tr><td><a href="hijri/index.json">/hijri/index.json</a></td><td>Coverage, generation time, Hijri years, confirmed-day count</td></tr>
+            <tr><td><a href="hijri/overrides.json">/hijri/overrides.json</a></td><td>Confirmed month starts and source URLs</td></tr>
+            <tr><td><a href="hijri/calendar/1448.json">/hijri/calendar/1448.json</a></td><td>Gregorian date → Hijri date, day number and confidence</td></tr>
+            <tr><td><a href="prayer/karachi/sunni_hanafi/2026.json">/prayer/karachi/sunni_hanafi/2026.json</a></td><td>Daily calculated prayer times</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">Replace <code>1448</code>, <code>2026</code>, city and profile as needed. Cities: <code>karachi</code>, <code>lahore</code>, <code>peshawar</code>, <code>quetta</code>. Profiles: <code>sunni_hanafi</code>, <code>sunni_asr1</code>, <code>shia_jafari</code>.</p>
+    </section>
+
+    <section aria-labelledby="shapes">
+      <h2 id="shapes">Response shapes</h2>
+      <p class="note"><code>index.json</code>:</p>
+      <pre><code>{
+  "coverage_start": "2025-06-27",
+  "generated_at": "2026-11-21T09:22:41.389Z",
+  "baseline": "islamic-umalqura (Intl)",
+  "hijri_years": [1447, 1448, 1449],
+  "confirmed_days": 532,
+  "confirmed_through": "2026-12-10"
+}</code></pre>
+      <p class="note"><code>overrides.json</code> entry:</p>
+      <pre><code>{
+  "months": {
+    "1448-01-01": {
+      "date": "2026-06-17",
+      "sources": ["https://example.com/committee-announcement"]
+    }
+  }
+}</code></pre>
+      <p class="note">One <code>days</code> entry from a calendar file:</p>
+      <pre><code>"2026-12-11": {
+  "hijri": "1448-07-01",
+  "year": 1448,
+  "month": 7,
+  "day": 1,
+  "month_name": { "en": "Rajab", "ur": "رجب" },
+  "confidence": "predicted",
+  "uncertainty_days": 2
+}</code></pre>
+      <p class="note">One <code>days</code> entry from a prayer file:</p>
+      <pre><code>"2026-01-01": {
+  "date": "2026-01-01",
+  "times": {
+    "fajr": "2026-01-01T05:55:00+05:00",
+    "sunrise": "2026-01-01T07:17:00+05:00",
+    "dhuhr": "2026-01-01T12:35:00+05:00",
+    "asr": "2026-01-01T16:18:00+05:00",
+    "maghrib": "2026-01-01T17:54:00+05:00",
+    "isha": "2026-01-01T19:16:00+05:00"
+  }
+}</code></pre>
+      <p class="note"><code>coverage_start</code> is the first confirmed start. <code>confirmed_through</code> is the last published <code>confirmed</code> day. <code>uncertainty_days: 2</code> appears on predicted days as a documented allowance, not a probability.</p>
     </section>
 
     <section aria-labelledby="confidence">
       <h2 id="confidence">Confidence</h2>
-      <dl class="conf">
-        <dt class="mono">confirmed</dt>
-        <dd>A verified start date in <code>overrides.json</code>.</dd>
-        <dt class="mono">estimated</dt>
-        <dd>A past month with no verified entry; from the baseline calculation.</dd>
-        <dt class="mono">predicted</dt>
-        <dd>A future month; from the baseline calculation.</dd>
-        <dt class="mono">unconfirmed</dt>
-        <dd>The last day of a month, where the sighting decides whether a 30th day exists.</dd>
-      </dl>
+      <div class="scroll">
+        <table>
+          <thead><tr><th>Level</th><th>Meaning</th></tr></thead>
+          <tbody>
+            <tr><td><code>confirmed</code></td><td>Inside a month whose start is verified in <code>overrides.json</code>.</td></tr>
+            <tr><td><code>estimated</code></td><td>A month start inferred in a gap between non-adjacent confirmed starts.</td></tr>
+            <tr><td><code>predicted</code></td><td>A month start projected after the last confirmed start.</td></tr>
+            <tr><td><code>unconfirmed</code></td><td>Only a 30th day whose successor start is not confirmed.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">Show <code>~9 Feb (estimated)</code> and say the date is awaiting an announcement. Do not present it as fact.</p>
     </section>
 
-    <section aria-labelledby="example">
-      <h2 id="example">Example</h2>
-      <p class="meta">One day from <code>/hijri/calendar/1448.json</code>:</p>
-      <pre><code>{
-  "hijri": "1448-04-25",
-  "year": 1448,
-  "month": 4,
-  "day": 25,
-  "month_name": { "en": "Rabi al-Thani", "ur": "ربیع الثانی" },
-  "confidence": "predicted"
-}</code></pre>
+    <section aria-labelledby="client">
+      <h2 id="client">TypeScript client</h2>
+      <pre><code>import { HijriCalendar, PrayerTable, hijriDate, sehriIftar } from "hijri-api";
+
+const json = (path) => fetch(`https://pakistan-hijri.github.io/hijri-api${path}`).then(r =&gt; r.json());
+const calendar = HijriCalendar.fromJSON(await json("/hijri/calendar/1448.json"));
+const prayer = PrayerTable.fromJSON(await json("/prayer/karachi/sunni_hanafi/2026.json"));
+const date = "2026-11-12";
+
+const noon = hijriDate(new Date(`${date}T12:00:00+05:00`), { calendar });
+console.log(noon.hijri, noon.confidence);
+
+const maghrib = prayer.maghrib(date);
+if (maghrib !== undefined) {
+  const evening = hijriDate(new Date(`${date}T20:00:00+05:00`), {
+    calendar, afterMaghrib: true, maghrib,
+  });
+  console.log(evening.hijri);
+}
+
+const fast = sehriIftar(prayer, noon.gregorian, noon);
+if (fast !== undefined) console.log(fast.sehriEnds, fast.iftar);</code></pre>
+      <p class="note"><code>hijriDate</code> uses the midnight-based date by default. <code>afterMaghrib</code> needs that day's Maghrib. <code>sehriIftar</code> returns a value only during Ramadan.</p>
     </section>
   </main>
 
   <footer>
-    <p>
-      Prayer times are calculated, not observed. For guidance only; always defer to your local
-      mosque or imambargah.
-    </p>
-    <nav aria-label="Project links">
-      <a href="https://github.com/pakistan-hijri/hijri-api">Source on GitHub</a>
-      <span aria-hidden="true">·</span>
-      <a href="https://github.com/pakistan-hijri/hijri-api/blob/main/CONTRIBUTING.md">Contributing</a>
-      <span aria-hidden="true">·</span>
-      <span>MIT licensed</span>
-    </nav>
+    <p>Prayer times are calculated, not observed. For guidance only; defer to your local mosque or imambargah.</p>
+    <p><a href="https://github.com/pakistan-hijri/hijri-api">Source</a> · <a href="https://github.com/pakistan-hijri/hijri-api/blob/main/CONTRIBUTING.md">Contributing</a> · MIT licensed</p>
   </footer>
 
 </div>

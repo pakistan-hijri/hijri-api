@@ -1,7 +1,7 @@
 /**
  * Client-side prayer data lookup and the sehri/iftar gate. Sehri and iftar are
  * surfaced only during Ramadan, which is the single point of coupling between
- * the Hijri and prayer modules (proposal section 7.5).
+ * the Hijri and prayer modules.
  */
 import { DateTime } from "luxon";
 import type { GregorianDate, LocalDateTime, PrayerDay, PrayerFile, SehriIftar } from "../types.js";

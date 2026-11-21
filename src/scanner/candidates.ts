@@ -1,7 +1,7 @@
 /**
  * Candidate month starts and the date gate for polling. The next month begins
  * either 29 or 30 days after the last confirmed start, so there are only ever
- * two candidates (proposal sections 6.1 and 6.4).
+ * two candidates.
  */
 import { DateTime } from "luxon";
 import { addDays, diffDays, todayInPakistan } from "../dates.js";

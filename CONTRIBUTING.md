@@ -1,104 +1,58 @@
 # Contributing
 
-## Adding a confirmed month start
-
-The confirmed record is the project's reason to exist, so contributions here are the
-most valuable.
+## Confirm a month start
 
 1. Edit `data/hijri/overrides.json`.
-2. Add an entry keyed by the Hijri 1st (`YYYY-MM-DD`), with the Gregorian date it
-   began and at least one public source URL.
-3. Run `npm run generate` to rebuild the calendar files.
-4. Open the pull request with the
-   [backfill month](.github/PULL_REQUEST_TEMPLATE/backfill-month.md) template, which
-   asks for the date and the sources.
+2. Add a key for the Hijri 1st (`YYYY-MM-DD`) with its Gregorian `date` and at least one public
+   source URL.
+3. Run `npm run generate`.
+4. Open a pull request using the [backfill month](.github/PULL_REQUEST_TEMPLATE/backfill-month.md)
+   template.
 
-```jsonc
+```json
 {
-  "coverage_start": "2025-03-01",
   "months": {
-    "1446-09-01": {
-      "date": "2025-03-01",
-      "sources": ["https://example.com/news/ramadan-begins"]
+    "1448-01-01": {
+      "date": "2026-06-17",
+      "sources": ["https://example.com/committee-announcement"]
     }
   }
 }
 ```
 
-Rules the generator enforces (`src/hijri/overrides.ts`):
+The generator requires real dates, at least one `http(s)` source, unique Gregorian starts, keys on
+the 1st, and adjacent confirmed starts 29 or 30 days apart. `coverage_start` is derived from the
+earliest confirmed month; leave it as it is.
 
-- Every entry needs at least one `http(s)` source URL.
-- Dates must be real `YYYY-MM-DD` calendar dates.
-- Two months cannot start on the same day.
+Store confirmed start dates, not offsets. A wrong offset shifts every later month; a wrong start
+date stays local.
 
-Leave `coverage_start` as `null`; the generator derives it from the earliest
-confirmed month.
+## Scanner
 
-Store **confirmed start dates, not offsets**. An offset applied to a calculated
-calendar cascades, because one wrong correction shifts every later month; start dates
-keep the error local.
+The scanner polls on the 29th evening and proposes a start only when two independent publishers
+agree. It rejects any announced date that is not 29 or 30 days after the previous confirmed start,
+and opens a PR with the proposal and regenerated data for human review. It never writes to `main`.
 
-## How the scanner runs
-
-The scanner (`.github/workflows/scanner.yml`) polls the news on the 29th evening, requires
-two independent publishers to agree on a date, and opens a pull request — the update never
-reaches `main` without a human merging it. It regenerates the calendar in the same pull
-request, so the proposal passes CI's data-freshness guard and merges in one review.
-
-Two things to know when you touch it:
-
-- **Discovery is month-aware.** Generic "Ruet-e-Hilal" searches are ranked by relevance and
-  can be dominated by older announcements, so the scanner also queries the exact month across
-  spellings (see `MONTH_NAME_VARIANTS` in `src/hijri/months.ts`) and reads direct feeds. If a
-  month is regularly missed, add its romanisations there before widening the queries.
-- **GitHub `schedule` is not reliable.** It delays and drops runs under load; in practice the
-  `*/15` cron fires only a handful of times per day. Wire up an external dispatcher to cover
-  the 29th evening. Give it a fine-grained token with `actions: write` and have it POST:
-
-  ```bash
-  gh api -X POST repos/<owner>/<repo>/actions/workflows/scanner.yml/dispatches \
-    -f ref=main -F inputs[dry_run]=false
-  ```
-
-  Run it every ~15 minutes through the 13:00-20:00 UTC window; the script date-gates, so runs
-  outside the window exit immediately.
-
-To debug a run locally, simulate the clock and print what the scanner saw:
+Debug a run locally:
 
 ```bash
 npx tsx src/cli.ts scan --now 2026-10-12T20:00:00+05:00 --dump
 ```
 
-Every workflow run uploads `scanner-out/run.json` and writes it to the run summary, including
-date sightings and near misses. When the polling window closes without a confirmed start, the
-workflow opens (or updates) an issue so the failure is never silent.
+## Backfill a past year
 
-## Backfilling a past year
-
-The scanner only covers the month about to start. To fill in months already in the past — a
-year that predates the record, or a gap after a missed announcement — run the manual `backfill`
-workflow (`.github/workflows/backfill.yml`). It reports every month's status without writing
-anything:
-
-- **Confirmed** months with their source URLs, so a second person can re-verify them.
-- **Missing** months, each with the two dates it could start on (29 or 30 days from the
-  neighbouring confirmed month) and the Umm al-Qura baseline date.
-
-Run the same report locally:
+The manual `backfill` workflow reports confirmed and missing months without writing data:
 
 ```bash
 npm run backfill -- --hijri-year 1447 --dry-run --markdown-out backfill-out/1447.md
 ```
 
-The default year is the previous Hijri year; `--dry-run` skips writing the year's calendar
-file. Add each confirmed start to `data/hijri/overrides.json` with a source URL, run
-`npm run generate`, and open a pull request with the backfill-month template. The
-`confirmed record consistency` test fails if the chain of months has a gap or a length other
-than 29 or 30 days.
+Add each confirmed start to `overrides.json`, run `npm run generate`, and open a PR. Consecutive
+confirmed starts must be 29 or 30 days apart; gaps are allowed and are published as `estimated`.
 
-## Adding a city
+## Add a city
 
-Append a row to `data/cities.json`:
+Append a row to `data/cities.json`, then run `npm run generate`:
 
 ```json
 {
@@ -112,38 +66,31 @@ Append a row to `data/cities.json`:
 }
 ```
 
-`id` must be a lowercase slug, `timezone` a valid IANA name. Then run
-`npm run generate` so the new city's prayer files are produced. `elevation` is
-recorded for reference; the calculation library does not use it.
+`id` must be a lowercase slug and `timezone` a valid IANA name. `elevation` is recorded but not used
+by the calculation library.
 
-## Adjusting a profile
+## Adjust a profile
 
-Calculation parameters live in `src/prayer/profiles.ts` and are documented in the
-implementation proposal (section 7.2). To correct a profile against a real timetable,
-use the per-prayer `adjustMin` fields rather than changing the angles, and explain the
-comparison in your pull request.
+Profiles live in `src/prayer/profiles.ts`. To match a printed timetable, adjust the per-prayer
+`adjustMin` values rather than the angles, and explain the comparison in the PR.
 
 ## Development
 
 ```bash
 npm install
-npm test            # vitest, colocated as *.test.ts
+npm test
 npm run typecheck
 npm run build
+npm run generate
 ```
 
-Tests must pass and `npm run typecheck` must be clean before a pull request. New
-behaviour needs a test; keep tests deterministic and offline (inject clocks,
-fetchers, and data rather than reaching for the network). CI runs typecheck, tests
-and build on every pull request.
+Generated files under `data/hijri/calendar/` and `data/prayer/` are the deployed product. Do not
+edit them by hand. `src/data-freshness.test.ts` and `src/hijri/calendar-invariants.test.ts` check
+that they match the source data and stay continuous.
 
-Generated files under `data/hijri/calendar/` and `data/prayer/` are committed on
-purpose: they are the deployed product, not build output. Do not edit them by hand —
-change the generator and rerun it. `src/data-freshness.test.ts` fails if `data/` is
-out of step with `overrides.json`.
+See [AGENTS.md](AGENTS.md) for repository guidance and [`specs/`](specs/api.md) for the published
+contracts.
 
-## Reporting a wrong date
+## Report a wrong date
 
-Open an issue with the Hijri month, the published Gregorian date, and a source for
-the correct one. A wrong month start is the most serious bug in this project, so
-please err on the side of reporting it.
+Open an issue with the Hijri month, the published Gregorian date, and a source for the correct date.

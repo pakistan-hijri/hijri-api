@@ -46,7 +46,7 @@ function neighbourKey(hijri: HijriDate, offset: number): string {
 
 /**
  * The two dates a month can start on, using the month-length constraint from a
- * confirmed neighbour (proposal section 8.2). Falls back to the baseline day
+ * confirmed neighbour. Falls back to the baseline day
  * and the day after when neither neighbour is confirmed.
  */
 function candidatesFor(

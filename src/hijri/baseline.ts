@@ -8,7 +8,6 @@ import { addDays, toUtc } from "../dates.js";
  * We use the Umm al-Qura calendar as shipped with Node's full ICU data. It is
  * only ever a fallback: Pakistan starts most months by sighting, so the
  * baseline is always served as `estimated` or `predicted`, never `confirmed`.
- * See proposal section 5.3.
  */
 export const BASELINE_NAME = "islamic-umalqura (Intl)";
 

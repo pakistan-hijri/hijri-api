@@ -1,7 +1,7 @@
 /**
  * Extract the announced start date from an announcement article and match it
  * against the two candidates. We look for the announced date rather than
- * interpreting "sighted / not sighted" (proposal section 6.2).
+ * interpreting "sighted / not sighted".
  */
 import * as chrono from "chrono-node";
 import { DateTime } from "luxon";

@@ -1,6 +1,6 @@
 /**
  * Load and validate the city table. Cities are plain data so contributors can
- * add rows through a pull request (proposal section 7.4).
+ * add rows through a pull request.
  */
 import { readFileSync } from "node:fs";
 import type { City } from "../types.js";

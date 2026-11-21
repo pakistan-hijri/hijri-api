@@ -1,6 +1,5 @@
 /**
  * Prayer calculation parameters for each supported sect/school profile.
- * See proposal sections 7.2 and 7.3.
  */
 import type { ProfileId, PrayerAdjustments, PrayerProfile } from "../types.js";
 
@@ -43,7 +42,7 @@ export const PROFILES: Record<ProfileId, PrayerProfile> = {
     ishaAngle: 14,
     asrFactor: 1,
     // The 4 degree rule already lands ~15 minutes after sunset at Pakistani
-    // latitudes, so we do not also add a fixed offset (proposal section 7.2).
+    // latitudes, so we do not also add a fixed offset.
     maghrib: { type: "angle", value: 4 },
     // A precaution margin before Fajr, as printed Shia timetables do.
     sehriOffsetMin: -10,

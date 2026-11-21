@@ -108,7 +108,7 @@ export interface PrayerAdjustments {
   isha: number;
 }
 
-/** Calculation parameters for a sect/school profile. See proposal section 7.2. */
+/** Calculation parameters for a sect/school profile. */
 export interface PrayerProfile {
   id: ProfileId;
   label: string;
@@ -174,7 +174,7 @@ export interface HijriResult {
   afterMaghrib: boolean;
 }
 
-/** Sehri/Iftar pair, returned only during Ramadan. See proposal section 7.5. */
+/** Sehri/Iftar pair, returned only during Ramadan. */
 export interface SehriIftar {
   sehriEnds: LocalDateTime;
   iftar: LocalDateTime;

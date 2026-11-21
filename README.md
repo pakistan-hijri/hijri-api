@@ -1,5 +1,8 @@
 # hijri-api
 
+> **Read this first:** treat anything whose confidence is not `confirmed` as approximate. Never
+> present it as the committee's decision.
+
 Open Hijri calendar and prayer time data for Pakistan, served as static JSON.
 
 Pakistan has no machine-readable source for **sighted** Hijri month starts. This project keeps a
@@ -16,7 +19,7 @@ Base URL: `https://pakistan-hijri.github.io/hijri-api`. All routes are `GET`, se
 
 | Route | Returns |
 |---|---|
-| `/hijri/index.json` | Coverage, generation time, available Hijri years |
+| `/hijri/index.json` | Coverage, `confirmed_through`, generation time, available Hijri years |
 | `/hijri/overrides.json` | The confirmed month-start record (human-edited, with sources) |
 | `/hijri/calendar/<hijriYear>.json` | Gregorian date → Hijri date + confidence |
 | `/prayer/<city>/<profile>/<year>.json` | Daily prayer times |
@@ -28,13 +31,23 @@ Cities: `karachi`, `lahore`, `peshawar`. Profiles: `sunni_hanafi`, `sunni_asr1` 
 
 | Level | Meaning |
 |---|---|
-| `confirmed` | A verified start date exists in `overrides.json` |
-| `estimated` | A past month with no verified entry; from the baseline |
-| `predicted` | A future month; from the baseline |
-| `unconfirmed` | The last day of a month, where the sighting decides whether a 30th day exists |
+| `confirmed` | The month start has a verified date and source in `overrides.json`, and every day shown is before the next confirmed start. |
+| `estimated` | A month start inferred while filling a gap between two non-adjacent confirmed starts. Its 29/30-day length follows the Umm al-Qura baseline where possible. |
+| `predicted` | A month start projected after the last confirmed start by choosing the 29th or 30th day closer to the Umm al-Qura baseline. |
+| `unconfirmed` | Only the 30th day of a month whose successor start is not confirmed. It remains labelled day 30 here, but the sighting may prove it was the next month's 1st. |
 
-Never present a non-`confirmed` date as official. `coverage_start` distinguishes "out of range"
-from "estimated".
+Do: show `~9 Feb (estimated)` and say the date is awaiting an announcement. Don't: print
+"1 Ramadan is 9 Feb" as fact when its confidence is `estimated`, `predicted` or `unconfirmed`.
+
+`coverage_start` is the first confirmed start; earlier dates are not published.
+`index.json.confirmed_through` is the last date actually published as `confirmed`, not simply the
+last confirmed 1st of a month.
+
+Predicted day entries carry `uncertainty_days: 2`. This is a documented allowance for now, not a
+probability bound. It was chosen from the archive: on 2026-11-21, `npm run stats:baseline-variance`
+compared all 18 confirmed starts in `overrides.json` with Umm al-Qura and found a difference of
+0–2 days (0 days: 1 month, 1 day: 14 months, 2 days: 3 months). Re-run that script to refresh the
+statistic after new confirmations.
 
 ## Client
 

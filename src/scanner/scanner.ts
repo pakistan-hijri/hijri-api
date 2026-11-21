@@ -7,7 +7,14 @@ import type { NormalizedOverrides } from "../hijri/overrides.js";
 import type { HijriDate } from "../types.js";
 import { nextHijriMonth, monthNameVariants } from "../hijri/months.js";
 import { todayInPakistan } from "../dates.js";
-import { buildCandidates, isPollingWindow, type CandidatePair, type MonthCandidate } from "./candidates.js";
+import {
+  buildCandidates,
+  isPollingWindow,
+  isValidStartSpacing,
+  startSpacingRejection,
+  type CandidatePair,
+  type MonthCandidate,
+} from "./candidates.js";
 import {
   buildSources,
   fetchArticles,
@@ -50,6 +57,7 @@ export interface NearMiss {
 
 export type ScannerOutcome =
   | { status: "no-baseline"; reason: string }
+  | { status: "invalid-start"; reason: string; previousStart: string; proposedStart: string }
   | { status: "not-due"; reason: string; twentyNinth: string }
   | { status: "overdue"; latest: string; lastConfirmed: HijriDate; expected: HijriDate }
   | { status: "fetch-failed"; errors: SourceError[] }
@@ -101,6 +109,17 @@ export async function runScanner(options: ScannerOptions): Promise<ScannerOutcom
   const monthVariants = monthNameVariants(nextMonth);
 
   const pair = buildCandidates(last.gregorian, timezone);
+  const invalidCandidate = pair.candidates.find(
+    (candidate) => !isValidStartSpacing(last.gregorian, candidate.date),
+  );
+  if (invalidCandidate !== undefined) {
+    return {
+      status: "invalid-start",
+      reason: startSpacingRejection(last.gregorian, invalidCandidate.date),
+      previousStart: last.gregorian,
+      proposedStart: invalidCandidate.date,
+    };
+  }
   const maghrib = options.maghribFor(todayInPakistan(now));
   if (maghrib === undefined) {
     return { status: "not-due", reason: "no Maghrib available for today", twentyNinth: pair.twentyNinth };
@@ -133,6 +152,7 @@ export async function runScanner(options: ScannerOptions): Promise<ScannerOutcom
         status: "proposed",
         proposal: buildProposal({
           lastConfirmed: last.hijri,
+          previousStart: last.gregorian,
           gregorian: candidate.date,
           candidates: pair.candidates,
           agreements: agreeing,

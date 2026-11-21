@@ -1,5 +1,10 @@
 import { describe, expect, it } from "vitest";
-import { buildCandidates, isPollingWindow } from "./candidates.js";
+import {
+  buildCandidates,
+  isPollingWindow,
+  isValidStartSpacing,
+  startSpacingRejection,
+} from "./candidates.js";
 
 describe("buildCandidates", () => {
   it("offers the 29th and 30th day after the last confirmed start", () => {
@@ -8,6 +13,19 @@ describe("buildCandidates", () => {
     expect(pair.candidates.map((candidate) => candidate.date)).toEqual(["2025-03-30", "2025-03-31"]);
     expect(pair.candidates[0]).toMatchObject({ weekday: "Sunday", weekdayUr: "اتوار" });
     expect(pair.candidates[1]).toMatchObject({ weekday: "Monday", weekdayUr: "پیر" });
+  });
+});
+
+describe("start spacing validation", () => {
+  it("accepts only starts 29 or 30 days after the previous confirmed start", () => {
+    expect(isValidStartSpacing("2025-03-01", "2025-03-30")).toBe(true);
+    expect(isValidStartSpacing("2025-03-01", "2025-03-31")).toBe(true);
+    expect(isValidStartSpacing("2025-03-01", "2025-04-01")).toBe(false);
+  });
+
+  it("explains a rejected date", () => {
+    expect(startSpacingRejection("2025-03-01", "2025-04-01"))
+      .toMatch(/31 days after previous confirmed start 2025-03-01.*29 or 30 days/);
   });
 });
 

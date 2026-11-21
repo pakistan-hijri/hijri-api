@@ -9,4 +9,13 @@ export {
   type NormalizedOverrides,
 } from "./overrides.js";
 export { buildTimeline, resolveDay, type ConfirmAnchor, type ResolveContext } from "./resolve.js";
+export {
+  buildMonthTable,
+  dayConfidence,
+  MonthTableError,
+  PREDICTED_UNCERTAINTY_DAYS,
+  type MonthRow,
+  type MonthLength,
+  type BuildMonthTableOptions,
+} from "./month-table.js";
 export { buildCalendar, type BuildCalendarOptions, type CalendarBuildResult } from "./calendar.js";

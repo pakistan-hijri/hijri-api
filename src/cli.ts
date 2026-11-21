@@ -204,8 +204,13 @@ function reportScan(args: Args, outcome: ScannerOutcome): number {
   }
 
   console.log(`scan: ${outcome.status}${
-    outcome.status === "not-due" || outcome.status === "no-baseline" ? ` (${outcome.reason})` : ""
+    outcome.status === "not-due" || outcome.status === "no-baseline" || outcome.status === "invalid-start"
+      ? ` (${outcome.reason})`
+      : ""
   }`);
+  if (outcome.status === "invalid-start") {
+    console.error(`  ${outcome.reason}`);
+  }
   if (outcome.status === "overdue") {
     console.log(
       `  expected 1 of ${outcome.expected.year}-${String(outcome.expected.month).padStart(2, "0")} ` +
@@ -227,7 +232,7 @@ function reportScan(args: Args, outcome: ScannerOutcome): number {
   if (args.flags.get("dump") === true || outcome.status === "fetch-failed") {
     console.log(JSON.stringify(outcome, null, 2));
   }
-  return outcome.status === "fetch-failed" ? 1 : 0;
+  return outcome.status === "fetch-failed" || outcome.status === "invalid-start" ? 1 : 0;
 }
 
 async function main(): Promise<void> {

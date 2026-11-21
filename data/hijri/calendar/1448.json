@@ -1,24 +1,9 @@
 {
   "hijri_year": 1448,
   "coverage_start": "2025-06-27",
-  "generated_at": "2026-11-11T08:47:30.582Z",
+  "generated_at": "2026-11-21T09:22:41.389Z",
   "baseline": "islamic-umalqura (Intl)",
   "days": {
-    "2026-06-16": {
-      "hijri": "1447-12-30",
-      "year": 1447,
-      "month": 12,
-      "day": 30,
-      "month_name": {
-        "en": "Dhu al-Hijjah",
-        "ur": "ذو الحجہ"
-      },
-      "confidence": "confirmed",
-      "sources": [
-        "https://www.arabnews.pk/pakistan/dhul-hijjah-moon-sighted-in-pakistan-eid-al-adha-to-be-observed-on-may-27-2643931",
-        "https://www.thenews.pk/story/1416005-eid-ul-adha-ruet-e-hilal-committee-meeting-underway-for-zil-hajj-moon-sighting"
-      ]
-    },
     "2026-06-17": {
       "hijri": "1448-01-01",
       "year": 1448,
@@ -2675,21 +2660,30 @@
       ]
     },
     "2026-12-11": {
-      "hijri": "1448-06-30",
+      "hijri": "1448-07-01",
       "year": 1448,
-      "month": 6,
-      "day": 30,
+      "month": 7,
+      "day": 1,
       "month_name": {
-        "en": "Jumada al-Thani",
-        "ur": "جمادی الثانی"
+        "en": "Rajab",
+        "ur": "رجب"
       },
-      "confidence": "unconfirmed",
-      "sources": [
-        "https://www.brecorder.com/news/40448338/first-jamadi-ul-sani-tomorrow",
-        "https://news.google.com/rss/articles/CBMiugFBVV95cUxOcmZCdnBVVXJPMmduVEt0STdxSldIcGotVVZNLWpSNjBFOUVaNGxOQlRJYlNKTnlMc2tyX0EyX09wVFVNWk4talVqcEZkdVNqQ1ZVclJUbGVCMlV1YmlZa0hWMjR2YS1PMXNDM2k4bGNVYld4NGdYYlljUEM3eHV5eDdydzhwdGxHUm9WU1JfUHRaMVVGamhLRVFrREpCaW56Y1dQSXlvdEZlUEN0V2kwdkh6cTlfMDhvSWc?oc=5"
-      ]
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2026-12-12": {
+      "hijri": "1448-07-02",
+      "year": 1448,
+      "month": 7,
+      "day": 2,
+      "month_name": {
+        "en": "Rajab",
+        "ur": "رجب"
+      },
+      "confidence": "predicted",
+      "uncertainty_days": 2
+    },
+    "2026-12-13": {
       "hijri": "1448-07-03",
       "year": 1448,
       "month": 7,
@@ -2698,9 +2692,10 @@
         "en": "Rajab",
         "ur": "رجب"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
-    "2026-12-13": {
+    "2026-12-14": {
       "hijri": "1448-07-04",
       "year": 1448,
       "month": 7,
@@ -2709,9 +2704,10 @@
         "en": "Rajab",
         "ur": "رجب"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
-    "2026-12-14": {
+    "2026-12-15": {
       "hijri": "1448-07-05",
       "year": 1448,
       "month": 7,
@@ -2720,9 +2716,10 @@
         "en": "Rajab",
         "ur": "رجب"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
-    "2026-12-15": {
+    "2026-12-16": {
       "hijri": "1448-07-06",
       "year": 1448,
       "month": 7,
@@ -2731,9 +2728,10 @@
         "en": "Rajab",
         "ur": "رجب"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
-    "2026-12-16": {
+    "2026-12-17": {
       "hijri": "1448-07-07",
       "year": 1448,
       "month": 7,
@@ -2742,9 +2740,10 @@
         "en": "Rajab",
         "ur": "رجب"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
-    "2026-12-17": {
+    "2026-12-18": {
       "hijri": "1448-07-08",
       "year": 1448,
       "month": 7,
@@ -2753,9 +2752,10 @@
         "en": "Rajab",
         "ur": "رجب"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
-    "2026-12-18": {
+    "2026-12-19": {
       "hijri": "1448-07-09",
       "year": 1448,
       "month": 7,
@@ -2764,9 +2764,10 @@
         "en": "Rajab",
         "ur": "رجب"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
-    "2026-12-19": {
+    "2026-12-20": {
       "hijri": "1448-07-10",
       "year": 1448,
       "month": 7,
@@ -2775,9 +2776,10 @@
         "en": "Rajab",
         "ur": "رجب"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
-    "2026-12-20": {
+    "2026-12-21": {
       "hijri": "1448-07-11",
       "year": 1448,
       "month": 7,
@@ -2786,9 +2788,10 @@
         "en": "Rajab",
         "ur": "رجب"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
-    "2026-12-21": {
+    "2026-12-22": {
       "hijri": "1448-07-12",
       "year": 1448,
       "month": 7,
@@ -2797,9 +2800,10 @@
         "en": "Rajab",
         "ur": "رجب"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
-    "2026-12-22": {
+    "2026-12-23": {
       "hijri": "1448-07-13",
       "year": 1448,
       "month": 7,
@@ -2808,9 +2812,10 @@
         "en": "Rajab",
         "ur": "رجب"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
-    "2026-12-23": {
+    "2026-12-24": {
       "hijri": "1448-07-14",
       "year": 1448,
       "month": 7,
@@ -2819,9 +2824,10 @@
         "en": "Rajab",
         "ur": "رجب"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
-    "2026-12-24": {
+    "2026-12-25": {
       "hijri": "1448-07-15",
       "year": 1448,
       "month": 7,
@@ -2830,9 +2836,10 @@
         "en": "Rajab",
         "ur": "رجب"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
-    "2026-12-25": {
+    "2026-12-26": {
       "hijri": "1448-07-16",
       "year": 1448,
       "month": 7,
@@ -2841,9 +2848,10 @@
         "en": "Rajab",
         "ur": "رجب"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
-    "2026-12-26": {
+    "2026-12-27": {
       "hijri": "1448-07-17",
       "year": 1448,
       "month": 7,
@@ -2852,9 +2860,10 @@
         "en": "Rajab",
         "ur": "رجب"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
-    "2026-12-27": {
+    "2026-12-28": {
       "hijri": "1448-07-18",
       "year": 1448,
       "month": 7,
@@ -2863,9 +2872,10 @@
         "en": "Rajab",
         "ur": "رجب"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
-    "2026-12-28": {
+    "2026-12-29": {
       "hijri": "1448-07-19",
       "year": 1448,
       "month": 7,
@@ -2874,9 +2884,10 @@
         "en": "Rajab",
         "ur": "رجب"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
-    "2026-12-29": {
+    "2026-12-30": {
       "hijri": "1448-07-20",
       "year": 1448,
       "month": 7,
@@ -2885,9 +2896,10 @@
         "en": "Rajab",
         "ur": "رجب"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
-    "2026-12-30": {
+    "2026-12-31": {
       "hijri": "1448-07-21",
       "year": 1448,
       "month": 7,
@@ -2896,9 +2908,10 @@
         "en": "Rajab",
         "ur": "رجب"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
-    "2026-12-31": {
+    "2027-01-01": {
       "hijri": "1448-07-22",
       "year": 1448,
       "month": 7,
@@ -2907,9 +2920,10 @@
         "en": "Rajab",
         "ur": "رجب"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
-    "2027-01-01": {
+    "2027-01-02": {
       "hijri": "1448-07-23",
       "year": 1448,
       "month": 7,
@@ -2918,9 +2932,10 @@
         "en": "Rajab",
         "ur": "رجب"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
-    "2027-01-02": {
+    "2027-01-03": {
       "hijri": "1448-07-24",
       "year": 1448,
       "month": 7,
@@ -2929,9 +2944,10 @@
         "en": "Rajab",
         "ur": "رجب"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
-    "2027-01-03": {
+    "2027-01-04": {
       "hijri": "1448-07-25",
       "year": 1448,
       "month": 7,
@@ -2940,9 +2956,10 @@
         "en": "Rajab",
         "ur": "رجب"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
-    "2027-01-04": {
+    "2027-01-05": {
       "hijri": "1448-07-26",
       "year": 1448,
       "month": 7,
@@ -2951,9 +2968,10 @@
         "en": "Rajab",
         "ur": "رجب"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
-    "2027-01-05": {
+    "2027-01-06": {
       "hijri": "1448-07-27",
       "year": 1448,
       "month": 7,
@@ -2962,9 +2980,10 @@
         "en": "Rajab",
         "ur": "رجب"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
-    "2027-01-06": {
+    "2027-01-07": {
       "hijri": "1448-07-28",
       "year": 1448,
       "month": 7,
@@ -2973,9 +2992,10 @@
         "en": "Rajab",
         "ur": "رجب"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
-    "2027-01-07": {
+    "2027-01-08": {
       "hijri": "1448-07-29",
       "year": 1448,
       "month": 7,
@@ -2984,18 +3004,8 @@
         "en": "Rajab",
         "ur": "رجب"
       },
-      "confidence": "predicted"
-    },
-    "2027-01-08": {
-      "hijri": "1448-07-30",
-      "year": 1448,
-      "month": 7,
-      "day": 30,
-      "month_name": {
-        "en": "Rajab",
-        "ur": "رجب"
-      },
-      "confidence": "unconfirmed"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-01-09": {
       "hijri": "1448-08-01",
@@ -3006,7 +3016,8 @@
         "en": "Sha'ban",
         "ur": "شعبان"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-01-10": {
       "hijri": "1448-08-02",
@@ -3017,7 +3028,8 @@
         "en": "Sha'ban",
         "ur": "شعبان"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-01-11": {
       "hijri": "1448-08-03",
@@ -3028,7 +3040,8 @@
         "en": "Sha'ban",
         "ur": "شعبان"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-01-12": {
       "hijri": "1448-08-04",
@@ -3039,7 +3052,8 @@
         "en": "Sha'ban",
         "ur": "شعبان"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-01-13": {
       "hijri": "1448-08-05",
@@ -3050,7 +3064,8 @@
         "en": "Sha'ban",
         "ur": "شعبان"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-01-14": {
       "hijri": "1448-08-06",
@@ -3061,7 +3076,8 @@
         "en": "Sha'ban",
         "ur": "شعبان"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-01-15": {
       "hijri": "1448-08-07",
@@ -3072,7 +3088,8 @@
         "en": "Sha'ban",
         "ur": "شعبان"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-01-16": {
       "hijri": "1448-08-08",
@@ -3083,7 +3100,8 @@
         "en": "Sha'ban",
         "ur": "شعبان"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-01-17": {
       "hijri": "1448-08-09",
@@ -3094,7 +3112,8 @@
         "en": "Sha'ban",
         "ur": "شعبان"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-01-18": {
       "hijri": "1448-08-10",
@@ -3105,7 +3124,8 @@
         "en": "Sha'ban",
         "ur": "شعبان"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-01-19": {
       "hijri": "1448-08-11",
@@ -3116,7 +3136,8 @@
         "en": "Sha'ban",
         "ur": "شعبان"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-01-20": {
       "hijri": "1448-08-12",
@@ -3127,7 +3148,8 @@
         "en": "Sha'ban",
         "ur": "شعبان"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-01-21": {
       "hijri": "1448-08-13",
@@ -3138,7 +3160,8 @@
         "en": "Sha'ban",
         "ur": "شعبان"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-01-22": {
       "hijri": "1448-08-14",
@@ -3149,7 +3172,8 @@
         "en": "Sha'ban",
         "ur": "شعبان"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-01-23": {
       "hijri": "1448-08-15",
@@ -3160,7 +3184,8 @@
         "en": "Sha'ban",
         "ur": "شعبان"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-01-24": {
       "hijri": "1448-08-16",
@@ -3171,7 +3196,8 @@
         "en": "Sha'ban",
         "ur": "شعبان"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-01-25": {
       "hijri": "1448-08-17",
@@ -3182,7 +3208,8 @@
         "en": "Sha'ban",
         "ur": "شعبان"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-01-26": {
       "hijri": "1448-08-18",
@@ -3193,7 +3220,8 @@
         "en": "Sha'ban",
         "ur": "شعبان"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-01-27": {
       "hijri": "1448-08-19",
@@ -3204,7 +3232,8 @@
         "en": "Sha'ban",
         "ur": "شعبان"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-01-28": {
       "hijri": "1448-08-20",
@@ -3215,7 +3244,8 @@
         "en": "Sha'ban",
         "ur": "شعبان"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-01-29": {
       "hijri": "1448-08-21",
@@ -3226,7 +3256,8 @@
         "en": "Sha'ban",
         "ur": "شعبان"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-01-30": {
       "hijri": "1448-08-22",
@@ -3237,7 +3268,8 @@
         "en": "Sha'ban",
         "ur": "شعبان"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-01-31": {
       "hijri": "1448-08-23",
@@ -3248,7 +3280,8 @@
         "en": "Sha'ban",
         "ur": "شعبان"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-02-01": {
       "hijri": "1448-08-24",
@@ -3259,7 +3292,8 @@
         "en": "Sha'ban",
         "ur": "شعبان"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-02-02": {
       "hijri": "1448-08-25",
@@ -3270,7 +3304,8 @@
         "en": "Sha'ban",
         "ur": "شعبان"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-02-03": {
       "hijri": "1448-08-26",
@@ -3281,7 +3316,8 @@
         "en": "Sha'ban",
         "ur": "شعبان"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-02-04": {
       "hijri": "1448-08-27",
@@ -3292,7 +3328,8 @@
         "en": "Sha'ban",
         "ur": "شعبان"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-02-05": {
       "hijri": "1448-08-28",
@@ -3303,7 +3340,8 @@
         "en": "Sha'ban",
         "ur": "شعبان"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-02-06": {
       "hijri": "1448-08-29",
@@ -3314,7 +3352,8 @@
         "en": "Sha'ban",
         "ur": "شعبان"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-02-07": {
       "hijri": "1448-08-30",
@@ -3336,7 +3375,8 @@
         "en": "Ramadan",
         "ur": "رمضان"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-02-09": {
       "hijri": "1448-09-02",
@@ -3347,7 +3387,8 @@
         "en": "Ramadan",
         "ur": "رمضان"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-02-10": {
       "hijri": "1448-09-03",
@@ -3358,7 +3399,8 @@
         "en": "Ramadan",
         "ur": "رمضان"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-02-11": {
       "hijri": "1448-09-04",
@@ -3369,7 +3411,8 @@
         "en": "Ramadan",
         "ur": "رمضان"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-02-12": {
       "hijri": "1448-09-05",
@@ -3380,7 +3423,8 @@
         "en": "Ramadan",
         "ur": "رمضان"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-02-13": {
       "hijri": "1448-09-06",
@@ -3391,7 +3435,8 @@
         "en": "Ramadan",
         "ur": "رمضان"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-02-14": {
       "hijri": "1448-09-07",
@@ -3402,7 +3447,8 @@
         "en": "Ramadan",
         "ur": "رمضان"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-02-15": {
       "hijri": "1448-09-08",
@@ -3413,7 +3459,8 @@
         "en": "Ramadan",
         "ur": "رمضان"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-02-16": {
       "hijri": "1448-09-09",
@@ -3424,7 +3471,8 @@
         "en": "Ramadan",
         "ur": "رمضان"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-02-17": {
       "hijri": "1448-09-10",
@@ -3435,7 +3483,8 @@
         "en": "Ramadan",
         "ur": "رمضان"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-02-18": {
       "hijri": "1448-09-11",
@@ -3446,7 +3495,8 @@
         "en": "Ramadan",
         "ur": "رمضان"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-02-19": {
       "hijri": "1448-09-12",
@@ -3457,7 +3507,8 @@
         "en": "Ramadan",
         "ur": "رمضان"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-02-20": {
       "hijri": "1448-09-13",
@@ -3468,7 +3519,8 @@
         "en": "Ramadan",
         "ur": "رمضان"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-02-21": {
       "hijri": "1448-09-14",
@@ -3479,7 +3531,8 @@
         "en": "Ramadan",
         "ur": "رمضان"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-02-22": {
       "hijri": "1448-09-15",
@@ -3490,7 +3543,8 @@
         "en": "Ramadan",
         "ur": "رمضان"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-02-23": {
       "hijri": "1448-09-16",
@@ -3501,7 +3555,8 @@
         "en": "Ramadan",
         "ur": "رمضان"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-02-24": {
       "hijri": "1448-09-17",
@@ -3512,7 +3567,8 @@
         "en": "Ramadan",
         "ur": "رمضان"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-02-25": {
       "hijri": "1448-09-18",
@@ -3523,7 +3579,8 @@
         "en": "Ramadan",
         "ur": "رمضان"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-02-26": {
       "hijri": "1448-09-19",
@@ -3534,7 +3591,8 @@
         "en": "Ramadan",
         "ur": "رمضان"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-02-27": {
       "hijri": "1448-09-20",
@@ -3545,7 +3603,8 @@
         "en": "Ramadan",
         "ur": "رمضان"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-02-28": {
       "hijri": "1448-09-21",
@@ -3556,7 +3615,8 @@
         "en": "Ramadan",
         "ur": "رمضان"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-03-01": {
       "hijri": "1448-09-22",
@@ -3567,7 +3627,8 @@
         "en": "Ramadan",
         "ur": "رمضان"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-03-02": {
       "hijri": "1448-09-23",
@@ -3578,7 +3639,8 @@
         "en": "Ramadan",
         "ur": "رمضان"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-03-03": {
       "hijri": "1448-09-24",
@@ -3589,7 +3651,8 @@
         "en": "Ramadan",
         "ur": "رمضان"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-03-04": {
       "hijri": "1448-09-25",
@@ -3600,7 +3663,8 @@
         "en": "Ramadan",
         "ur": "رمضان"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-03-05": {
       "hijri": "1448-09-26",
@@ -3611,7 +3675,8 @@
         "en": "Ramadan",
         "ur": "رمضان"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-03-06": {
       "hijri": "1448-09-27",
@@ -3622,7 +3687,8 @@
         "en": "Ramadan",
         "ur": "رمضان"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-03-07": {
       "hijri": "1448-09-28",
@@ -3633,7 +3699,8 @@
         "en": "Ramadan",
         "ur": "رمضان"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-03-08": {
       "hijri": "1448-09-29",
@@ -3644,7 +3711,8 @@
         "en": "Ramadan",
         "ur": "رمضان"
       },
-      "confidence": "unconfirmed"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-03-09": {
       "hijri": "1448-10-01",
@@ -3655,7 +3723,8 @@
         "en": "Shawwal",
         "ur": "شوال"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-03-10": {
       "hijri": "1448-10-02",
@@ -3666,7 +3735,8 @@
         "en": "Shawwal",
         "ur": "شوال"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-03-11": {
       "hijri": "1448-10-03",
@@ -3677,7 +3747,8 @@
         "en": "Shawwal",
         "ur": "شوال"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-03-12": {
       "hijri": "1448-10-04",
@@ -3688,7 +3759,8 @@
         "en": "Shawwal",
         "ur": "شوال"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-03-13": {
       "hijri": "1448-10-05",
@@ -3699,7 +3771,8 @@
         "en": "Shawwal",
         "ur": "شوال"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-03-14": {
       "hijri": "1448-10-06",
@@ -3710,7 +3783,8 @@
         "en": "Shawwal",
         "ur": "شوال"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-03-15": {
       "hijri": "1448-10-07",
@@ -3721,7 +3795,8 @@
         "en": "Shawwal",
         "ur": "شوال"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-03-16": {
       "hijri": "1448-10-08",
@@ -3732,7 +3807,8 @@
         "en": "Shawwal",
         "ur": "شوال"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-03-17": {
       "hijri": "1448-10-09",
@@ -3743,7 +3819,8 @@
         "en": "Shawwal",
         "ur": "شوال"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-03-18": {
       "hijri": "1448-10-10",
@@ -3754,7 +3831,8 @@
         "en": "Shawwal",
         "ur": "شوال"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-03-19": {
       "hijri": "1448-10-11",
@@ -3765,7 +3843,8 @@
         "en": "Shawwal",
         "ur": "شوال"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-03-20": {
       "hijri": "1448-10-12",
@@ -3776,7 +3855,8 @@
         "en": "Shawwal",
         "ur": "شوال"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-03-21": {
       "hijri": "1448-10-13",
@@ -3787,7 +3867,8 @@
         "en": "Shawwal",
         "ur": "شوال"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-03-22": {
       "hijri": "1448-10-14",
@@ -3798,7 +3879,8 @@
         "en": "Shawwal",
         "ur": "شوال"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-03-23": {
       "hijri": "1448-10-15",
@@ -3809,7 +3891,8 @@
         "en": "Shawwal",
         "ur": "شوال"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-03-24": {
       "hijri": "1448-10-16",
@@ -3820,7 +3903,8 @@
         "en": "Shawwal",
         "ur": "شوال"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-03-25": {
       "hijri": "1448-10-17",
@@ -3831,7 +3915,8 @@
         "en": "Shawwal",
         "ur": "شوال"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-03-26": {
       "hijri": "1448-10-18",
@@ -3842,7 +3927,8 @@
         "en": "Shawwal",
         "ur": "شوال"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-03-27": {
       "hijri": "1448-10-19",
@@ -3853,7 +3939,8 @@
         "en": "Shawwal",
         "ur": "شوال"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-03-28": {
       "hijri": "1448-10-20",
@@ -3864,7 +3951,8 @@
         "en": "Shawwal",
         "ur": "شوال"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-03-29": {
       "hijri": "1448-10-21",
@@ -3875,7 +3963,8 @@
         "en": "Shawwal",
         "ur": "شوال"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-03-30": {
       "hijri": "1448-10-22",
@@ -3886,7 +3975,8 @@
         "en": "Shawwal",
         "ur": "شوال"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-03-31": {
       "hijri": "1448-10-23",
@@ -3897,7 +3987,8 @@
         "en": "Shawwal",
         "ur": "شوال"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-04-01": {
       "hijri": "1448-10-24",
@@ -3908,7 +3999,8 @@
         "en": "Shawwal",
         "ur": "شوال"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-04-02": {
       "hijri": "1448-10-25",
@@ -3919,7 +4011,8 @@
         "en": "Shawwal",
         "ur": "شوال"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-04-03": {
       "hijri": "1448-10-26",
@@ -3930,7 +4023,8 @@
         "en": "Shawwal",
         "ur": "شوال"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-04-04": {
       "hijri": "1448-10-27",
@@ -3941,7 +4035,8 @@
         "en": "Shawwal",
         "ur": "شوال"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-04-05": {
       "hijri": "1448-10-28",
@@ -3952,7 +4047,8 @@
         "en": "Shawwal",
         "ur": "شوال"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-04-06": {
       "hijri": "1448-10-29",
@@ -3963,7 +4059,8 @@
         "en": "Shawwal",
         "ur": "شوال"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-04-07": {
       "hijri": "1448-10-30",
@@ -3985,7 +4082,8 @@
         "en": "Dhu al-Qi'dah",
         "ur": "ذو القعدہ"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-04-09": {
       "hijri": "1448-11-02",
@@ -3996,7 +4094,8 @@
         "en": "Dhu al-Qi'dah",
         "ur": "ذو القعدہ"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-04-10": {
       "hijri": "1448-11-03",
@@ -4007,7 +4106,8 @@
         "en": "Dhu al-Qi'dah",
         "ur": "ذو القعدہ"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-04-11": {
       "hijri": "1448-11-04",
@@ -4018,7 +4118,8 @@
         "en": "Dhu al-Qi'dah",
         "ur": "ذو القعدہ"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-04-12": {
       "hijri": "1448-11-05",
@@ -4029,7 +4130,8 @@
         "en": "Dhu al-Qi'dah",
         "ur": "ذو القعدہ"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-04-13": {
       "hijri": "1448-11-06",
@@ -4040,7 +4142,8 @@
         "en": "Dhu al-Qi'dah",
         "ur": "ذو القعدہ"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-04-14": {
       "hijri": "1448-11-07",
@@ -4051,7 +4154,8 @@
         "en": "Dhu al-Qi'dah",
         "ur": "ذو القعدہ"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-04-15": {
       "hijri": "1448-11-08",
@@ -4062,7 +4166,8 @@
         "en": "Dhu al-Qi'dah",
         "ur": "ذو القعدہ"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-04-16": {
       "hijri": "1448-11-09",
@@ -4073,7 +4178,8 @@
         "en": "Dhu al-Qi'dah",
         "ur": "ذو القعدہ"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-04-17": {
       "hijri": "1448-11-10",
@@ -4084,7 +4190,8 @@
         "en": "Dhu al-Qi'dah",
         "ur": "ذو القعدہ"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-04-18": {
       "hijri": "1448-11-11",
@@ -4095,7 +4202,8 @@
         "en": "Dhu al-Qi'dah",
         "ur": "ذو القعدہ"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-04-19": {
       "hijri": "1448-11-12",
@@ -4106,7 +4214,8 @@
         "en": "Dhu al-Qi'dah",
         "ur": "ذو القعدہ"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-04-20": {
       "hijri": "1448-11-13",
@@ -4117,7 +4226,8 @@
         "en": "Dhu al-Qi'dah",
         "ur": "ذو القعدہ"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-04-21": {
       "hijri": "1448-11-14",
@@ -4128,7 +4238,8 @@
         "en": "Dhu al-Qi'dah",
         "ur": "ذو القعدہ"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-04-22": {
       "hijri": "1448-11-15",
@@ -4139,7 +4250,8 @@
         "en": "Dhu al-Qi'dah",
         "ur": "ذو القعدہ"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-04-23": {
       "hijri": "1448-11-16",
@@ -4150,7 +4262,8 @@
         "en": "Dhu al-Qi'dah",
         "ur": "ذو القعدہ"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-04-24": {
       "hijri": "1448-11-17",
@@ -4161,7 +4274,8 @@
         "en": "Dhu al-Qi'dah",
         "ur": "ذو القعدہ"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-04-25": {
       "hijri": "1448-11-18",
@@ -4172,7 +4286,8 @@
         "en": "Dhu al-Qi'dah",
         "ur": "ذو القعدہ"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-04-26": {
       "hijri": "1448-11-19",
@@ -4183,7 +4298,8 @@
         "en": "Dhu al-Qi'dah",
         "ur": "ذو القعدہ"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-04-27": {
       "hijri": "1448-11-20",
@@ -4194,7 +4310,8 @@
         "en": "Dhu al-Qi'dah",
         "ur": "ذو القعدہ"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-04-28": {
       "hijri": "1448-11-21",
@@ -4205,7 +4322,8 @@
         "en": "Dhu al-Qi'dah",
         "ur": "ذو القعدہ"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-04-29": {
       "hijri": "1448-11-22",
@@ -4216,7 +4334,8 @@
         "en": "Dhu al-Qi'dah",
         "ur": "ذو القعدہ"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-04-30": {
       "hijri": "1448-11-23",
@@ -4227,7 +4346,8 @@
         "en": "Dhu al-Qi'dah",
         "ur": "ذو القعدہ"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-05-01": {
       "hijri": "1448-11-24",
@@ -4238,7 +4358,8 @@
         "en": "Dhu al-Qi'dah",
         "ur": "ذو القعدہ"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-05-02": {
       "hijri": "1448-11-25",
@@ -4249,7 +4370,8 @@
         "en": "Dhu al-Qi'dah",
         "ur": "ذو القعدہ"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-05-03": {
       "hijri": "1448-11-26",
@@ -4260,7 +4382,8 @@
         "en": "Dhu al-Qi'dah",
         "ur": "ذو القعدہ"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-05-04": {
       "hijri": "1448-11-27",
@@ -4271,7 +4394,8 @@
         "en": "Dhu al-Qi'dah",
         "ur": "ذو القعدہ"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-05-05": {
       "hijri": "1448-11-28",
@@ -4282,7 +4406,8 @@
         "en": "Dhu al-Qi'dah",
         "ur": "ذو القعدہ"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-05-06": {
       "hijri": "1448-11-29",
@@ -4293,7 +4418,8 @@
         "en": "Dhu al-Qi'dah",
         "ur": "ذو القعدہ"
       },
-      "confidence": "unconfirmed"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-05-07": {
       "hijri": "1448-12-01",
@@ -4304,7 +4430,8 @@
         "en": "Dhu al-Hijjah",
         "ur": "ذو الحجہ"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-05-08": {
       "hijri": "1448-12-02",
@@ -4315,7 +4442,8 @@
         "en": "Dhu al-Hijjah",
         "ur": "ذو الحجہ"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-05-09": {
       "hijri": "1448-12-03",
@@ -4326,7 +4454,8 @@
         "en": "Dhu al-Hijjah",
         "ur": "ذو الحجہ"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-05-10": {
       "hijri": "1448-12-04",
@@ -4337,7 +4466,8 @@
         "en": "Dhu al-Hijjah",
         "ur": "ذو الحجہ"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-05-11": {
       "hijri": "1448-12-05",
@@ -4348,7 +4478,8 @@
         "en": "Dhu al-Hijjah",
         "ur": "ذو الحجہ"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-05-12": {
       "hijri": "1448-12-06",
@@ -4359,7 +4490,8 @@
         "en": "Dhu al-Hijjah",
         "ur": "ذو الحجہ"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-05-13": {
       "hijri": "1448-12-07",
@@ -4370,7 +4502,8 @@
         "en": "Dhu al-Hijjah",
         "ur": "ذو الحجہ"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-05-14": {
       "hijri": "1448-12-08",
@@ -4381,7 +4514,8 @@
         "en": "Dhu al-Hijjah",
         "ur": "ذو الحجہ"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-05-15": {
       "hijri": "1448-12-09",
@@ -4392,7 +4526,8 @@
         "en": "Dhu al-Hijjah",
         "ur": "ذو الحجہ"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-05-16": {
       "hijri": "1448-12-10",
@@ -4403,7 +4538,8 @@
         "en": "Dhu al-Hijjah",
         "ur": "ذو الحجہ"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-05-17": {
       "hijri": "1448-12-11",
@@ -4414,7 +4550,8 @@
         "en": "Dhu al-Hijjah",
         "ur": "ذو الحجہ"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-05-18": {
       "hijri": "1448-12-12",
@@ -4425,7 +4562,8 @@
         "en": "Dhu al-Hijjah",
         "ur": "ذو الحجہ"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-05-19": {
       "hijri": "1448-12-13",
@@ -4436,7 +4574,8 @@
         "en": "Dhu al-Hijjah",
         "ur": "ذو الحجہ"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-05-20": {
       "hijri": "1448-12-14",
@@ -4447,7 +4586,8 @@
         "en": "Dhu al-Hijjah",
         "ur": "ذو الحجہ"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-05-21": {
       "hijri": "1448-12-15",
@@ -4458,7 +4598,8 @@
         "en": "Dhu al-Hijjah",
         "ur": "ذو الحجہ"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-05-22": {
       "hijri": "1448-12-16",
@@ -4469,7 +4610,8 @@
         "en": "Dhu al-Hijjah",
         "ur": "ذو الحجہ"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-05-23": {
       "hijri": "1448-12-17",
@@ -4480,7 +4622,8 @@
         "en": "Dhu al-Hijjah",
         "ur": "ذو الحجہ"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-05-24": {
       "hijri": "1448-12-18",
@@ -4491,7 +4634,8 @@
         "en": "Dhu al-Hijjah",
         "ur": "ذو الحجہ"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-05-25": {
       "hijri": "1448-12-19",
@@ -4502,7 +4646,8 @@
         "en": "Dhu al-Hijjah",
         "ur": "ذو الحجہ"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-05-26": {
       "hijri": "1448-12-20",
@@ -4513,7 +4658,8 @@
         "en": "Dhu al-Hijjah",
         "ur": "ذو الحجہ"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-05-27": {
       "hijri": "1448-12-21",
@@ -4524,7 +4670,8 @@
         "en": "Dhu al-Hijjah",
         "ur": "ذو الحجہ"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-05-28": {
       "hijri": "1448-12-22",
@@ -4535,7 +4682,8 @@
         "en": "Dhu al-Hijjah",
         "ur": "ذو الحجہ"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-05-29": {
       "hijri": "1448-12-23",
@@ -4546,7 +4694,8 @@
         "en": "Dhu al-Hijjah",
         "ur": "ذو الحجہ"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-05-30": {
       "hijri": "1448-12-24",
@@ -4557,7 +4706,8 @@
         "en": "Dhu al-Hijjah",
         "ur": "ذو الحجہ"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-05-31": {
       "hijri": "1448-12-25",
@@ -4568,7 +4718,8 @@
         "en": "Dhu al-Hijjah",
         "ur": "ذو الحجہ"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-06-01": {
       "hijri": "1448-12-26",
@@ -4579,7 +4730,8 @@
         "en": "Dhu al-Hijjah",
         "ur": "ذو الحجہ"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-06-02": {
       "hijri": "1448-12-27",
@@ -4590,7 +4742,8 @@
         "en": "Dhu al-Hijjah",
         "ur": "ذو الحجہ"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-06-03": {
       "hijri": "1448-12-28",
@@ -4601,7 +4754,8 @@
         "en": "Dhu al-Hijjah",
         "ur": "ذو الحجہ"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-06-04": {
       "hijri": "1448-12-29",
@@ -4612,7 +4766,8 @@
         "en": "Dhu al-Hijjah",
         "ur": "ذو الحجہ"
       },
-      "confidence": "predicted"
+      "confidence": "predicted",
+      "uncertainty_days": 2
     },
     "2027-06-05": {
       "hijri": "1448-12-30",

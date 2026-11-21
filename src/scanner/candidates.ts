@@ -4,7 +4,7 @@
  * two candidates (proposal sections 6.1 and 6.4).
  */
 import { DateTime } from "luxon";
-import { addDays, todayInPakistan } from "../dates.js";
+import { addDays, diffDays, todayInPakistan } from "../dates.js";
 
 export interface MonthCandidate {
   /** Gregorian date `YYYY-MM-DD`. */
@@ -39,6 +39,21 @@ function candidate(lastStart: string, offset: number, timezone: string): MonthCa
     weekday: dt.weekdayLong ?? "",
     weekdayUr: URDU_WEEKDAYS[dt.weekday] ?? "",
   };
+}
+
+export function startSpacing(previousStart: string, proposedStart: string): number {
+  return diffDays(previousStart, proposedStart);
+}
+
+export function isValidStartSpacing(previousStart: string, proposedStart: string): boolean {
+  const spacing = startSpacing(previousStart, proposedStart);
+  return spacing === 29 || spacing === 30;
+}
+
+export function startSpacingRejection(previousStart: string, proposedStart: string): string {
+  const spacing = startSpacing(previousStart, proposedStart);
+  return `Rejected proposed start ${proposedStart}: ${spacing} days after previous confirmed start `
+    + `${previousStart}; a confirmed month must start 29 or 30 days after the previous confirmed month`;
 }
 
 /** The two dates the new month could begin on, given the last confirmed start. */

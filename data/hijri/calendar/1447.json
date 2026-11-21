@@ -1,20 +1,9 @@
 {
   "hijri_year": 1447,
   "coverage_start": "2025-06-27",
-  "generated_at": "2026-11-11T08:47:30.582Z",
+  "generated_at": "2026-11-21T09:22:41.389Z",
   "baseline": "islamic-umalqura (Intl)",
   "days": {
-    "2025-06-26": {
-      "hijri": "1447-01-01",
-      "year": 1447,
-      "month": 1,
-      "day": 1,
-      "month_name": {
-        "en": "Muharram",
-        "ur": "محرم"
-      },
-      "confidence": "estimated"
-    },
     "2025-06-27": {
       "hijri": "1447-01-01",
       "year": 1447,
@@ -5315,6 +5304,21 @@
       "year": 1447,
       "month": 12,
       "day": 29,
+      "month_name": {
+        "en": "Dhu al-Hijjah",
+        "ur": "ذو الحجہ"
+      },
+      "confidence": "confirmed",
+      "sources": [
+        "https://www.arabnews.pk/pakistan/dhul-hijjah-moon-sighted-in-pakistan-eid-al-adha-to-be-observed-on-may-27-2643931",
+        "https://www.thenews.pk/story/1416005-eid-ul-adha-ruet-e-hilal-committee-meeting-underway-for-zil-hajj-moon-sighting"
+      ]
+    },
+    "2026-06-16": {
+      "hijri": "1447-12-30",
+      "year": 1447,
+      "month": 12,
+      "day": 30,
       "month_name": {
         "en": "Dhu al-Hijjah",
         "ur": "ذو الحجہ"

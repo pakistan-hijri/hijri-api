@@ -42,6 +42,7 @@
     "generate:prayer": "tsx src/cli.ts generate --prayer",
     "scanner": "tsx src/cli.ts scan",
     "backfill": "tsx src/cli.ts backfill",
+    "stats:baseline-variance": "tsx scripts/baseline-variance.ts",
     "lint": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {

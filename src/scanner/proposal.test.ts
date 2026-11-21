@@ -5,6 +5,7 @@ import {
   applyProposal,
   buildProposal,
   canonicalPublisher,
+  ProposalValidationError,
   countPublishers,
   renderPullRequestBody,
 } from "./proposal.js";
@@ -27,6 +28,7 @@ describe("buildProposal", () => {
   it("targets the month after the last confirmed start", () => {
     const proposal = buildProposal({
       lastConfirmed: { year: 1446, month: 9, day: 1 },
+      previousStart: "2025-03-01",
       gregorian: "2025-03-30",
       candidates: [...candidates],
       agreements,
@@ -35,6 +37,22 @@ describe("buildProposal", () => {
     expect(proposal.hijriKey).toBe("1446-10-01");
     expect(proposal.sources).toEqual(["https://dawn.com/a", "https://geo.tv/b"]);
     expect(countPublishers(agreements)).toBe(2);
+  });
+});
+
+describe("buildProposal start spacing", () => {
+  it("rejects a proposed start that is not 29 or 30 days after the previous confirmed start", () => {
+    const build = () => buildProposal({
+      lastConfirmed: { year: 1446, month: 9, day: 1 },
+      previousStart: "2025-03-01",
+      gregorian: "2025-04-01",
+      candidates: [...candidates],
+      agreements,
+      detectedAt: "2025-03-31T20:00:00.000Z",
+    });
+
+    expect(build).toThrow(ProposalValidationError);
+    expect(build).toThrow(/31 days after previous confirmed start 2025-03-01/);
   });
 });
 
@@ -62,6 +80,7 @@ describe("applyProposal", () => {
   it("adds the entry, preserves other keys, and sets coverage_start", () => {
     const proposal = buildProposal({
       lastConfirmed: { year: 1446, month: 9, day: 1 },
+      previousStart: "2025-03-01",
       gregorian: "2025-03-30",
       candidates: [...candidates],
       agreements,
@@ -83,6 +102,7 @@ describe("renderPullRequestBody", () => {
   it("includes the date, candidates and evidence", () => {
     const proposal = buildProposal({
       lastConfirmed: { year: 1446, month: 9, day: 1 },
+      previousStart: "2025-03-01",
       gregorian: "2025-03-30",
       candidates: [...candidates],
       agreements,

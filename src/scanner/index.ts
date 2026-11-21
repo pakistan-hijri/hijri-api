@@ -7,7 +7,15 @@ export {
   type ScannerOptions,
   type ScannerOutcome,
 } from "./scanner.js";
-export { buildCandidates, isPollingWindow, type CandidatePair, type MonthCandidate } from "./candidates.js";
+export {
+  buildCandidates,
+  isPollingWindow,
+  isValidStartSpacing,
+  startSpacing,
+  startSpacingRejection,
+  type CandidatePair,
+  type MonthCandidate,
+} from "./candidates.js";
 export {
   COMMITTEE_SOURCES,
   DEFAULT_SOURCES,
@@ -27,6 +35,7 @@ export {
   buildProposal,
   canonicalPublisher,
   countPublishers,
+  ProposalValidationError,
   renderPullRequestBody,
   type BuildProposalOptions,
   type Evidence,

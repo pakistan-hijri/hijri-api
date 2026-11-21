@@ -5,7 +5,7 @@
 import type { HijriDate, OverridesFile } from "../types.js";
 import { hijriKey } from "../dates.js";
 import { monthName, nextHijriMonth } from "../hijri/months.js";
-import type { MonthCandidate } from "./candidates.js";
+import { isValidStartSpacing, startSpacingRejection, type MonthCandidate } from "./candidates.js";
 import type { Article } from "./sources.js";
 import type { Extraction } from "./extract.js";
 
@@ -27,8 +27,13 @@ export interface Proposal {
   detectedAt: string;
 }
 
+export class ProposalValidationError extends Error {
+  override name = "ProposalValidationError";
+}
+
 export interface BuildProposalOptions {
   lastConfirmed: HijriDate;
+  previousStart: string;
   gregorian: string;
   candidates: MonthCandidate[];
   agreements: { article: Article; extraction: Extraction }[];
@@ -36,6 +41,9 @@ export interface BuildProposalOptions {
 }
 
 export function buildProposal(options: BuildProposalOptions): Proposal {
+  if (!isValidStartSpacing(options.previousStart, options.gregorian)) {
+    throw new ProposalValidationError(startSpacingRejection(options.previousStart, options.gregorian));
+  }
   const hijri = nextHijriMonth(options.lastConfirmed);
   return {
     hijriKey: hijriKey(hijri),
